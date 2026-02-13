@@ -119,6 +119,7 @@
 
   --transition-1: 0.25s ease;
   --transition-2: 0.5s ease-in-out;
+  --transition-3: 0.35s ease;
 
 }
 
@@ -769,7 +770,7 @@ main {
 .service-item-text {
   color: var(--light-gray);
   font-size: var(--fs-6);
-  font-weight: var(--fw-3);
+  font-weight: var(--fw-300);
   line-height: 1.6;
 }
 
@@ -1152,7 +1153,10 @@ main {
   border-radius: 8px;
 }
 
-.select-item button:hover { --eerie-black-2: hsl(240, 2%, 20%); }
+.select-item button:hover {
+  background: hsl(240, 2%, 20%);
+  color: var(--white-2);
+}
 
 .project-list {
   display: grid;
@@ -1485,6 +1489,26 @@ textarea.form-input::-webkit-resizer { display: none; }
 .form-btn:disabled:hover { background: var(--border-gradient-onyx); }
 
 .form-btn:disabled:hover::before { background: var(--bg-gradient-jet); }
+
+a:focus-visible,
+button:focus-visible,
+.navbar-link:focus-visible,
+.social-link:focus-visible,
+.btn:focus-visible,
+.project-item > a:focus-visible,
+.blog-post-item > a:focus-visible,
+.form-input:focus-visible {
+  outline: 2px solid var(--accent-lime);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+}
 
 
 

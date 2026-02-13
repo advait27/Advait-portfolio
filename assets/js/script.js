@@ -164,7 +164,7 @@ const filterFunc = function (selectedValue) {
 
     if (selectedValue === "all") {
       filterItems[i].classList.add("active");
-    } else if (selectedValue === filterItems[i].dataset.category) {
+    } else if (selectedValue === filterItems[i].dataset.category.toLowerCase()) {
       filterItems[i].classList.add("active");
     } else {
       filterItems[i].classList.remove("active");
@@ -284,3 +284,14 @@ for (let i = 0; i < navigationLinks.length; i++) {
 
   });
 }
+
+// external links behavior
+const externalLinks = document.querySelectorAll('a[href^="http"]');
+
+externalLinks.forEach((link) => {
+  const isExternal = !link.href.includes(window.location.hostname);
+  if (isExternal) {
+    link.setAttribute("target", "_blank");
+    link.setAttribute("rel", "noopener noreferrer");
+  }
+});
