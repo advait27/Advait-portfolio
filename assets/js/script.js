@@ -118,7 +118,7 @@ if (typedText) {
 
 // reveal animations on scroll
 const revealTargets = document.querySelectorAll(
-  ".hero-panel, .about-text, .service-item, .testimonials-item, .timeline-item, .skills-item, .project-item, .blog-post-item, .contact-form"
+  ".hero-panel, .about-text, .service-item, .now-card, .cert-item, .stack-group, .testimonials-item, .timeline-item, .skills-item, .project-item, .blog-post-item, .podcast-card, .contact-method, .contact-form"
 );
 
 const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -153,7 +153,79 @@ if (reduceMotion) {
   );
 
   revealTargets.forEach((target) => revealObserver.observe(target));
+
+  // Elements inside pages that start hidden (display:none) never intersect,
+  // so reveal a page's content as soon as it becomes the active page.
+  const revealPage = (page) => {
+    if (!page) return;
+    page.querySelectorAll(".reveal").forEach((el) => {
+      el.classList.add("is-visible");
+      const skillFill = el.querySelector(".skill-progress-fill");
+      if (skillFill) skillFill.classList.add("is-animated");
+    });
+  };
+
+  document.querySelectorAll("[data-nav-link]").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      requestAnimationFrame(() => revealPage(document.querySelector("[data-page].active")));
+    });
+  });
 }
+
+// animated metric counters
+const counters = document.querySelectorAll("[data-count]");
+
+const runCounter = (el) => {
+  const target = parseFloat(el.dataset.count) || 0;
+  const suffix = el.dataset.suffix || "";
+  const duration = 1400;
+  let startTime = null;
+
+  const step = (timestamp) => {
+    if (!startTime) startTime = timestamp;
+    const progress = Math.min((timestamp - startTime) / duration, 1);
+    // easeOutCubic for a snappy settle
+    const eased = 1 - Math.pow(1 - progress, 3);
+    el.textContent = Math.round(target * eased) + suffix;
+    if (progress < 1) requestAnimationFrame(step);
+  };
+
+  requestAnimationFrame(step);
+};
+
+if (counters.length) {
+  if (reduceMotion) {
+    counters.forEach((el) => {
+      el.textContent = (parseFloat(el.dataset.count) || 0) + (el.dataset.suffix || "");
+    });
+  } else {
+    const counterObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            runCounter(entry.target);
+            counterObserver.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.6 }
+    );
+    counters.forEach((el) => counterObserver.observe(el));
+  }
+}
+
+// "Listen to Podcast" style in-page jumps to a nav page
+const navJumpLinks = document.querySelectorAll("[data-nav-jump]");
+navJumpLinks.forEach((jump) => {
+  jump.addEventListener("click", (event) => {
+    event.preventDefault();
+    const targetPage = jump.dataset.navJump;
+    const navBtn = [...document.querySelectorAll("[data-nav-link]")].find(
+      (btn) => btn.innerHTML.trim().toLowerCase() === targetPage
+    );
+    if (navBtn) navBtn.click();
+  });
+});
 
 // filter variables
 const filterItems = document.querySelectorAll("[data-filter-item]");
@@ -284,6 +356,39 @@ for (let i = 0; i < navigationLinks.length; i++) {
 
   });
 }
+
+// hash-based deep linking (shareable pages, e.g. #podcast)
+const pageNames = [...pages].map((page) => page.dataset.page);
+
+const activatePageByName = (name) => {
+  const navBtn = [...navigationLinks].find(
+    (btn) => btn.innerHTML.trim().toLowerCase() === name
+  );
+  if (navBtn) navBtn.click();
+};
+
+const applyHash = () => {
+  const name = window.location.hash.replace("#", "").toLowerCase();
+  if (pageNames.includes(name)) {
+    activatePageByName(name);
+  }
+};
+
+// activate the correct page on first load and on hash changes
+applyHash();
+window.addEventListener("hashchange", applyHash);
+
+// keep the URL hash in sync when navigating via the navbar
+navigationLinks.forEach((btn) => {
+  btn.addEventListener("click", () => {
+    const name = btn.innerHTML.trim().toLowerCase();
+    if (history.replaceState) {
+      history.replaceState(null, "", "#" + name);
+    }
+  });
+});
+
+
 
 // external links behavior
 const externalLinks = document.querySelectorAll('a[href^="http"]');
