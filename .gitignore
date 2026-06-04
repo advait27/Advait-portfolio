@@ -1,6 +1,14 @@
 # Local Netlify folder
 .netlify
 
+# Node / Netlify Functions
+node_modules/
+deno.lock
+
+# Secrets
+.env
+.env.local
+
 # OS / editor cruft
 .DS_Store
 **/.DS_Store

@@ -69,6 +69,43 @@ python3 -m http.server 8000
 
 Then open **http://localhost:8000**. Any static server works (`npx serve`, the VS Code Live Server extension, etc.). Opening `index.html` directly via `file://` mostly works, but a local server is recommended so fonts, icons, and the Spotify embeds load correctly.
 
+## AI features (additive)
+
+Two signature features sit on top of the static site without changing how anything else works:
+
+1. **"Ask my portfolio"** — a floating chat assistant (bottom-right) that answers questions about Advait, grounded **only** in the site's content, and shows clickable source chips that jump to the relevant section.
+2. **ClawbackVault 3D pipeline** — an interactive Three.js visualisation of the real processing pipeline (`Inbox → Header Scan → PII-Masked Body Fetch → Signal Classification → 4-Tier Churn Engine`) in the *Currently building* area, with a static SVG fallback.
+
+### How the assistant works (no vector DB)
+
+The whole portfolio fits in one context window, so there is no embedding pipeline:
+
+- `assets/data/portfolio-kb.json` holds the knowledge base as `{ id, section, label, anchor, text }` chunks extracted from the site.
+- A **Netlify Function** (`netlify/functions/ask.mjs`) injects the full KB into the system prompt, asks the model to answer **only** from the KB, and to return the chunk `id`s it used. Those ids become the source chips; clicking one activates the right page and scrolls/highlights the section.
+- The model runs on the **[NVIDIA build.nvidia.com](https://build.nvidia.com) API** (OpenAI-compatible). **The API key never reaches the browser** — it lives only in the `NVIDIA_API_KEY` server-side env var.
+- Guardrails: stays strictly in role (refuses jailbreak / off-topic), ~500-char input cap, output `max_tokens` cap, a best-effort per-IP rate limit, CORS locked to the production domain, and all model output is rendered as escaped text (no HTML injection).
+
+### Run locally with the assistant
+
+The static site runs with any HTTP server (see above), but the chat endpoint needs the Netlify CLI:
+
+```bash
+npm install -g netlify-cli            # one-time
+cp .env.example .env                  # then add your key
+#   NVIDIA_API_KEY=nvapi-...
+#   NVIDIA_MODEL=meta/llama-3.3-70b-instruct   (optional override)
+
+netlify dev                           # serves site + /api/ask on http://localhost:8888
+```
+
+Without a key, the rest of the site (including the 3D pipeline) works fully; the assistant simply replies that it isn't configured.
+
+### Deploy notes
+
+- In Netlify: **Site settings → Environment variables**, add `NVIDIA_API_KEY` (and optionally `NVIDIA_MODEL`).
+- `netlify.toml` configures the function and bundles `portfolio-kb.json` alongside it. No build command is needed — the site stays static; only the function is server-side.
+- The 3D pipeline loads Three.js from a CDN via an `importmap`, lazy-inits on scroll, disposes when offscreen, and falls back to a static SVG when WebGL is unavailable or `prefers-reduced-motion` is set.
+
 ## Customisation notes
 
 - **Content** lives entirely in `index.html`, grouped by `<article data-page="...">` sections.

@@ -1,0 +1,139 @@
+{
+  "person": "Advait Dharmadhikari",
+  "updated": "2026-06",
+  "chunks": [
+    {
+      "id": "about-overview",
+      "section": "about",
+      "label": "About → Overview",
+      "anchor": ".about-text",
+      "text": "Advait Dharmadhikari works at the intersection of AI systems, business strategy, and technology consulting — translating complex business problems into production-ready intelligence systems that people actually use. His background is unusual by design: he came into AI through business and operations, not purely engineering, so before models, architecture, or tooling, his first question is always 'what decision are we improving?'. He builds AI-first systems: LLM architectures, RAG pipelines, semantic search, agentic workflows, and AI product strategy, leading end-to-end development from concept to production while balancing model performance, latency, cost optimisation, governance, and real-world usability. He is currently pursuing an MSc in Business Analytics at UCD Michael Smurfit Graduate Business School, with formal AI & ML training from IIT Kanpur. He writes on strategy, analytics, and AI, hosts two podcasts, mentors early-career professionals, and is open to consulting in Ireland and globally."
+    },
+    {
+      "id": "hero-highlights",
+      "section": "about",
+      "label": "About → Highlights",
+      "anchor": ".hero-panel",
+      "text": "Advait is a forward deployed engineer working at the intersection of AI systems, business strategy, and technology consulting. He turns ambiguous problems into LLM architectures, agentic workflows, and decision products that people actually use, balancing performance, cost, latency, and governance. Headline metrics: supported a 300+ aircraft fleet with ML-driven operations optimisation at IndiGo; cut AI/LLM token cost by roughly 80–90% via a targeted-surveillance architecture; published 18+ long-form articles on AI, analytics and strategy; and hosts 2 podcasts on business technology and growth. Focus areas: LLM architecture, agentic AI, RAG pipelines, AI product strategy, AI evaluation, digital transformation, and decision intelligence."
+    },
+    {
+      "id": "services",
+      "section": "about",
+      "label": "About → What I do",
+      "anchor": ".service",
+      "text": "What Advait does: (1) AI Systems & LLM Architecture — designing LLM applications, RAG pipelines, semantic search, and agentic workflows built for performance, cost, and governance from day one. (2) AI Product Strategy — owning product vision and roadmaps end-to-end, from research ingestion to structured outputs, with AI evaluation practices that keep systems reliable. He leads work from concept through to production."
+    },
+    {
+      "id": "clawbackvault",
+      "section": "about",
+      "label": "Currently building → ClawbackVault",
+      "anchor": ".now-building",
+      "text": "Advait is the Founding Engineer building ClawbackVault AI at Frensei (status: Live). It is a Full-Stack, AI, Fintech product that protects broker commissions from silent client churn. He owns the end-to-end build: a targeted-surveillance architecture that replaced full-inbox scanning and cut Claude API spend per broker by 80–90%; a three-stage processing pipeline (header scan → PII-masked body fetch → signal classification) where email bodies never touch the database; and a four-tier churn-signal engine powered by Claude Sonnet 4.6 across 15+ behavioural categories. Other features: a two-pass Gmail/Outlook fetcher via Gmail API and Microsoft Graph (OAuth 2.0); a 'Ghost Audit' 60-second inbox scan surfacing commission-at-risk in real time; AES-256-GCM encryption, PII masking before every LLM call, and prompt-injection protection; row-level multi-tenant isolation across EU-West and Asia-Pacific with full GDPR export. Stack: Claude Sonnet 4.6, Supabase, OAuth 2.0, RAG, CASA Tier 2."
+    },
+    {
+      "id": "cbv-pipeline",
+      "section": "about",
+      "label": "ClawbackVault → Architecture",
+      "anchor": "#cbv-pipeline",
+      "text": "ClawbackVault's processing pipeline runs in connected stages: Inbox → Header Scan → PII-Masked Body Fetch → Signal Classification (Claude Sonnet 4.6) → 4-Tier Churn Engine. The signature design choice is privacy-first: email bodies are PII-masked before any LLM call and never touch the database. Targeting only the relevant emails (rather than scanning the full inbox) is what drives the 80–90% reduction in LLM cost per broker."
+    },
+    {
+      "id": "certs",
+      "section": "about",
+      "label": "About → Certifications",
+      "anchor": ".certs",
+      "text": "Certifications and recognition: UCD Advantage Award (University College Dublin, Honor); Data Strategy professional certification; Google Project Management Professional Certificate; BCG Advanced Analytics & Data Science virtual experience program; Data Visualization & Analytics experience program; Relational Data on Azure (Microsoft); Google Business Intelligence Professional Certificate."
+    },
+    {
+      "id": "stack",
+      "section": "about",
+      "label": "About → Tools & stack",
+      "anchor": ".stack",
+      "text": "Advait's tools and stack span LLM and AI engineering (Claude / Anthropic API, RAG, semantic search, agentic workflows, AI evaluation), data science and ML, cloud (GCP, Azure), databases (Supabase), and BI/analytics. He pairs applied AI engineering with product and business-analysis skills."
+    },
+    {
+      "id": "education",
+      "section": "resume",
+      "label": "Resume → Education",
+      "anchor": "[data-kb-anchor='education']",
+      "text": "Education: MSc Business Analytics at University College Dublin – Michael Smurfit Graduate Business School (September 2025 – Present), focused on business optimization, simulation, predictive analytics, machine learning, and technology consulting. Post Graduate Professional Certification in Artificial Intelligence & Machine Learning at IIT Kanpur (October 2023 – July 2024), advanced training in AI and ML with emphasis on deep learning. BBA in Business Analytics and Data Science at Christ University, Bangalore (2020 – 2023). Earlier business/commerce track at Ryan International School (2018 – 2020)."
+    },
+    {
+      "id": "exp-frensei",
+      "section": "resume",
+      "label": "Experience → Frensei",
+      "anchor": "[data-kb-anchor='exp-frensei']",
+      "text": "At Frensei (Dublin), Advait is AI Consultant and Founding Engineer (May 2026 – Present): founding engineer on ClawbackVault AI, owning the end-to-end scrum programme across a 4-phase roadmap and partnering with the CEO on product, pricing, and go-to-market. He designed a targeted-surveillance architecture that cut Claude API spend per broker by 80–90%, a privacy-first processing pipeline, and a Claude Sonnet 4.6 signal engine across 15+ behavioural categories with AES-256-GCM encryption, PII masking, and GDPR compliance built in. Previously he was Technical Lead – AI & Product Management (December 2025 – May 2026): led design and execution of Frensei's AI-first intelligence platform from zero to scale, owning both product strategy and applied AI architecture; built agentic systems (planning, execution, verification, feedback), LLM pipelines (RAG, semantic search, long-context reasoning), and AI evaluation practices that cut hallucinations and lifted output consistency by 40%, while driving technical hiring and architectural standards."
+    },
+    {
+      "id": "exp-indigo",
+      "section": "resume",
+      "label": "Experience → IndiGo",
+      "anchor": "[data-kb-anchor='exp-indigo']",
+      "text": "At IndiGo (InterGlobe Aviation Ltd), Advait was Business Analyst – Business Technology & Product (January 2024 – August 2025): led business analysis and product delivery for operations-control applications across a 300+ aircraft fleet, owning requirement definition and stakeholder alignment, and leading ML-driven optimisation including aircraft zero-fuel-weight prediction and on-time-performance cost models — delivering roughly 20% operational cost savings with executive usability front of mind. Earlier he was Business Intelligence Engineer – Business Technology & Product (June 2023 – December 2023): owned requirements gathering, solution design, and reporting logic, delivering production-ready BI in cloud-enabled environments (GCP, Azure) for leadership and cross-functional teams."
+    },
+    {
+      "id": "exp-teaching",
+      "section": "resume",
+      "label": "Experience → Teaching & mentoring",
+      "anchor": "[data-kb-anchor='exp-teaching']",
+      "text": "Teaching and mentoring: Teaching Assistant – Digital Technologies in Business at University College Dublin (January 2026 – May 2026), supporting teaching across digital transformation, data-driven decision-making, AI, and analytics, bridging academic frameworks with industry use cases and guiding 150+ students through projects, case studies, and presentations. Business Analytics & Machine Learning Mentor on topmate.io (January 2025 – Present), mentoring early-career professionals on analytics, ML fundamentals, project framing, and career direction across a global audience."
+    },
+    {
+      "id": "exp-consulting",
+      "section": "resume",
+      "label": "Experience → Consulting & internships",
+      "anchor": "[data-kb-anchor='exp-consulting']",
+      "text": "Earlier experience: Business Development Analyst Team Lead at CHRIST Consulting (June 2021 – June 2022), leading a 15-member analyst team on market-entry and growth-strategy engagements, driving structured analysis and executive storytelling that contributed to a 25% increase in new business acquisition and roughly 15% improvement in renewals and upsells. Data Science & Business Analytics internships across IndiGo, LetsGrowMore, The Sparks Foundation, and EntryLevel (2020 – 2023), building early experience in data analysis, predictive modeling, and business analytics."
+    },
+    {
+      "id": "skills",
+      "section": "resume",
+      "label": "Resume → Skills",
+      "anchor": ".skill",
+      "text": "Advait's skills cover applied AI engineering (LLM architecture, RAG pipelines, semantic search, agentic workflows, AI evaluation), machine learning and data science, business intelligence and analytics, product strategy and management, and business analysis — with cloud experience on GCP and Azure."
+    },
+    {
+      "id": "proj-clawbackvault",
+      "section": "portfolio",
+      "label": "Portfolio → ClawbackVault AI",
+      "anchor": "[data-kb-anchor='proj-clawbackvault']",
+      "text": "ClawbackVault AI (flagship project): a privacy-first AI system that protects broker commissions from silent client churn — targeted-surveillance architecture, a Claude Sonnet 4.6 signal engine across 15+ behavioural categories, and an 80–90% reduction in LLM cost per broker. Built with Claude, RAG, Supabase, and OAuth 2.0."
+    },
+    {
+      "id": "proj-ai-llm",
+      "section": "portfolio",
+      "label": "Portfolio → AI & LLM projects",
+      "anchor": "[data-kb-anchor='proj-ai']",
+      "text": "AI & LLM projects: HalluciMap — detects and maps LLM hallucinations to strengthen AI evaluation and reliability. ChartSense — turns charts and visual data into structured, queryable insight with AI. Jarvis — a personal AI assistant exploring agentic tool use and conversational workflows. AI Cost & Growth Optimizer — balances AI/LLM token cost against performance and growth objectives. Most are on GitHub at github.com/advait27."
+    },
+    {
+      "id": "proj-finance",
+      "section": "portfolio",
+      "label": "Portfolio → Finance projects",
+      "anchor": "[data-kb-anchor='proj-finance']",
+      "text": "Finance projects and packages: ESGProfiler — a published Python package for ESG profiling and scoring of companies. Finance-AutoML — an AutoML framework tailored for financial applications and forecasting. FinFeatures — a toolkit that streamlines financial feature engineering for ML pipelines. Market Pulse AI — AI-driven market sentiment and signal monitoring for trading insight. FinPred — a stock-analysis and market-prediction app built on Streamlit."
+    },
+    {
+      "id": "proj-analytics",
+      "section": "portfolio",
+      "label": "Portfolio → Analytics projects",
+      "anchor": "[data-kb-anchor='proj-analytics']",
+      "text": "Analytics projects: Credit Risk Assessment — ML credit-risk scoring to classify borrower default probability. Employee Turnover Analytics — predicts attrition and surfaces retention drivers from HR data. Advait has 30+ repositories across AI, ML, finance, and analytics on GitHub at github.com/advait27."
+    },
+    {
+      "id": "podcasts",
+      "section": "podcast",
+      "label": "Podcast → Shows",
+      "anchor": ".podcast-list",
+      "text": "Advait hosts two podcasts on Spotify. 'The Business Technologist' decodes digital transformation, AI & innovation for real enterprise value — episodes include 'From Data to Decisions — The Rise of Decision Intelligence', 'The Death of SaaS — And the Rise of AI-Native Enterprises', 'Hyperautomation: When Automation Becomes a Strategy', and 'Agentic AI: Firing Your Chatbot, Hiring a Digital Worker'. '5 Minute Boosters' offers bite-sized motivation and personal growth — episodes include 'Your Mind Is Lying to You', 'Your Future Self Is Watching', 'Success Isn't Loud — It's Consistent', and 'Stop Apologizing for Who You Are'."
+    },
+    {
+      "id": "contact",
+      "section": "contact",
+      "label": "Contact → Get in touch",
+      "anchor": ".contact-intro",
+      "text": "Advait is open to consulting, AI strategy, and forward-deployed engineering work in Ireland and globally. The fastest way to reach him is email or LinkedIn. Email: advaitdharmadhikari27@gmail.com. LinkedIn: linkedin.com/in/advaitdharmadhikari. GitHub: github.com/advait27. Location: Dublin, Ireland. There is also a contact form on the site."
+    }
+  ]
+}

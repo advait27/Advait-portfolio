@@ -439,6 +439,50 @@
 
 
         <!--
+          - ClawbackVault 3D pipeline
+        -->
+
+        <section class="now-pipeline" id="cbv-pipeline">
+
+          <h3 class="h3 service-title">How ClawbackVault processes a signal</h3>
+
+          <p class="pipeline-lead">
+            The live pipeline &mdash; drag to explore. Email bodies are PII-masked before any LLM call and never
+            touch the database; targeting only the relevant mail is what drives the cost reduction.
+          </p>
+
+          <div class="pipeline-stage" data-pipeline>
+
+            <span class="pipeline-hint" aria-hidden="true">Drag to orbit</span>
+
+            <div class="pipeline-hud">
+              <span class="pipeline-hud-value"><span data-hud-count="85" data-hud-suffix="%">0%</span></span>
+              <span class="pipeline-hud-label">LLM cost reduction per broker (80&ndash;90%)</span>
+            </div>
+
+            <!-- Static fallback (no-JS, no-WebGL, or prefers-reduced-motion) -->
+            <div class="pipeline-fallback">
+              <svg viewBox="0 0 560 150" role="img"
+                aria-label="ClawbackVault pipeline: Inbox to Header Scan to PII-Masked Body Fetch to Signal Classification with Claude Sonnet to 4-Tier Churn Engine.">
+                <line class="pf-link" x1="70" y1="60" x2="118" y2="60" />
+                <line class="pf-link" x1="190" y1="60" x2="238" y2="60" />
+                <line class="pf-link" x1="310" y1="60" x2="358" y2="60" />
+                <line class="pf-link" x1="430" y1="60" x2="478" y2="60" />
+                <g class="pf-node"><rect x="10" y="42" width="60" height="36" rx="8" /><text x="40" y="64" text-anchor="middle">Inbox</text></g>
+                <g class="pf-node"><rect x="118" y="42" width="72" height="36" rx="8" /><text x="154" y="60" text-anchor="middle">Header</text><text x="154" y="71" text-anchor="middle">Scan</text></g>
+                <g class="pf-node pf-pii"><rect x="238" y="42" width="72" height="36" rx="8" /><text x="274" y="60" text-anchor="middle">PII-Mask</text><text x="274" y="71" text-anchor="middle">Fetch</text></g>
+                <g class="pf-node"><rect x="358" y="42" width="72" height="36" rx="8" /><text x="394" y="60" text-anchor="middle">Signal</text><text x="394" y="71" text-anchor="middle">· Claude</text></g>
+                <g class="pf-node pf-final"><rect x="478" y="42" width="72" height="36" rx="8" /><text x="514" y="60" text-anchor="middle">4-Tier</text><text x="514" y="71" text-anchor="middle">Churn</text></g>
+                <text class="pf-mask" x="274" y="110" text-anchor="middle">jane@acme.co → ●●●●</text>
+              </svg>
+            </div>
+
+          </div>
+
+        </section>
+
+
+        <!--
           - certifications & recognition
         -->
 
@@ -772,7 +816,7 @@
               <ion-icon name="book-outline"></ion-icon>
             </div>
 
-            <h3 class="h3">Education</h3>
+            <h3 class="h3" data-kb-anchor="education">Education</h3>
           </div>
 
           <ol class="timeline-list">
@@ -859,7 +903,7 @@
 
           <ol class="timeline-list">
 
-            <li class="timeline-item">
+            <li class="timeline-item" data-kb-anchor="exp-frensei">
 
               <h4 class="h4 timeline-item-title">Artificial Intelligence Consultant &middot; Founding Engineer</h4>
               <h5 class="h5 timeline-item-title">Frensei &mdash; Dublin</h5>
@@ -893,7 +937,7 @@
 
             </li>
 
-            <li class="timeline-item">
+            <li class="timeline-item" data-kb-anchor="exp-teaching">
 
               <h4 class="h4 timeline-item-title">Teaching Assistant - Digital Technologies in Business</h4>
               <h5 class="h5 timeline-item-title">University College Dublin</h5>
@@ -922,7 +966,7 @@
 
             </li>
 
-            <li class="timeline-item">
+            <li class="timeline-item" data-kb-anchor="exp-indigo">
 
               <h4 class="h4 timeline-item-title">Business Analyst - Business Technology &amp; Product</h4>
               <h5 class="h5 timeline-item-title">IndiGo (InterGlobe Aviation Ltd)</h5>
@@ -953,7 +997,7 @@
 
             </li>
 
-            <li class="timeline-item">
+            <li class="timeline-item" data-kb-anchor="exp-consulting">
 
               <h4 class="h4 timeline-item-title">Business Development Analyst Team Lead</h4>
               <h5 class="h5 timeline-item-title">CHRIST Consulting</h5>
@@ -1140,7 +1184,7 @@
 
           <ul class="project-list">
 
-            <li class="project-item featured active" data-filter-item data-category="ai & llm">
+            <li class="project-item featured active" data-filter-item data-category="ai & llm" data-kb-anchor="proj-clawbackvault">
               <a href="https://www.linkedin.com/in/advaitdharmadhikari" class="project-card">
                 <div class="project-banner banner-ai">
                   <span class="project-lang">Production &middot; Fintech</span>
@@ -1164,7 +1208,7 @@
               </a>
             </li>
 
-            <li class="project-item active" data-filter-item data-category="ai & llm">
+            <li class="project-item active" data-filter-item data-category="ai & llm" data-kb-anchor="proj-ai">
               <a href="https://github.com/advait27/hallucimap" class="project-card">
                 <div class="project-banner banner-ai">
                   <span class="project-lang">Python</span>
@@ -1236,7 +1280,7 @@
               </a>
             </li>
 
-            <li class="project-item active" data-filter-item data-category="finance">
+            <li class="project-item active" data-filter-item data-category="finance" data-kb-anchor="proj-finance">
               <a href="https://github.com/advait27/ESGProfiler" class="project-card">
                 <div class="project-banner banner-finance">
                   <span class="project-lang">Package</span>
@@ -1326,7 +1370,7 @@
               </a>
             </li>
 
-            <li class="project-item active" data-filter-item data-category="analytics">
+            <li class="project-item active" data-filter-item data-category="analytics" data-kb-anchor="proj-analytics">
               <a href="https://github.com/advait27/Credit-Risk-assessment" class="project-card">
                 <div class="project-banner banner-analytics">
                   <span class="project-lang">Notebook</span>
@@ -2120,6 +2164,24 @@
     - custom js link
   -->
   <script src="./assets/js/script.js"></script>
+
+  <!--
+    - "Ask my portfolio" chat assistant (additive)
+  -->
+  <script src="./assets/js/chat.js" defer></script>
+
+  <!--
+    - ClawbackVault 3D pipeline (Three.js via importmap, lazy-init, additive)
+  -->
+  <script type="importmap">
+  {
+    "imports": {
+      "three": "https://unpkg.com/three@0.160.0/build/three.module.js",
+      "three/addons/": "https://unpkg.com/three@0.160.0/examples/jsm/"
+    }
+  }
+  </script>
+  <script type="module" src="./assets/js/pipeline.js"></script>
 
   <!--
     - ionicon link

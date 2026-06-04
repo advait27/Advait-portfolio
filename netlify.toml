@@ -1,0 +1,17 @@
+# Netlify configuration for the (otherwise static) portfolio site.
+# The site has no build step; functions are the only additive backend.
+
+[build]
+  publish = "."
+  command = ""
+
+[functions]
+  node_bundler = "esbuild"
+  # Bundle the knowledge base alongside the function so it can read it directly.
+  included_files = ["assets/data/portfolio-kb.json"]
+
+# Friendly route for the assistant endpoint (also declared in ask.mjs config).
+[[redirects]]
+  from = "/api/ask"
+  to = "/.netlify/functions/ask"
+  status = 200
