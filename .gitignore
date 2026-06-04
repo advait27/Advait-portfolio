@@ -1,0 +1,12 @@
+# Local Netlify folder
+.netlify
+
+# OS / editor cruft
+.DS_Store
+**/.DS_Store
+
+# Python virtual environment
+.venv/
+
+# Claude Code agent config & memory (local only)
+.claude/
