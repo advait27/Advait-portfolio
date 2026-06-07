@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" fill="none">
+  <rect width="1200" height="630" fill="#050505"/>
+  <defs>
+    <radialGradient id="orb" cx="50%" cy="38%" r="60%">
+      <stop offset="0%" stop-color="#F37512" stop-opacity="0.22"/>
+      <stop offset="100%" stop-color="#050505" stop-opacity="0"/>
+    </radialGradient>
+    <pattern id="grid" width="48" height="48" patternUnits="userSpaceOnUse">
+      <path d="M48 0H0V48" fill="none" stroke="#F2F2EC" stroke-opacity="0.05" stroke-width="1"/>
+    </pattern>
+  </defs>
+  <rect width="1200" height="630" fill="url(#grid)"/>
+  <rect width="1200" height="630" fill="url(#orb)"/>
+
+  <!-- AD monogram -->
+  <text x="96" y="300" font-family="Georgia, serif" font-size="220" font-weight="700" fill="#F2F2EC">A</text>
+  <text x="250" y="300" font-family="Georgia, serif" font-size="220" font-weight="700" font-style="italic" fill="#F37512">D</text>
+
+  <!-- Name + role -->
+  <text x="100" y="430" font-family="Georgia, serif" font-size="64" font-weight="600" fill="#F2F2EC">Advait Dharmadhikari</text>
+  <text x="102" y="486" font-family="monospace" font-size="26" letter-spacing="4" fill="#F37512">AI STRATEGY &#183; FORWARD DEPLOYED ENGINEER</text>
+  <text x="102" y="544" font-family="monospace" font-size="20" letter-spacing="3" fill="#F2F2EC" fill-opacity="0.5">ARCHITECTED &#183; BUILT &#183; SHIPPED</text>
+
+  <circle cx="1104" cy="96" r="8" fill="#F37512"/>
+  <text x="1064" y="101" font-family="monospace" font-size="18" letter-spacing="2" fill="#F2F2EC" fill-opacity="0.6" text-anchor="end">OPEN TO CONSULTING</text>
+</svg>
