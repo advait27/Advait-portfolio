@@ -2810,6 +2810,8 @@ a.contact-method:hover {
   justify-content: center;
   padding: 20px;
 }
+/* When 3D loads, JS sets [hidden]; this must beat the .pipeline-fallback display rule. */
+.pipeline-fallback[hidden] { display: none; }
 .pipeline-fallback svg { width: 100%; height: auto; max-width: 560px; }
 .pf-node rect {
   fill: rgba(79, 123, 255, 0.14);

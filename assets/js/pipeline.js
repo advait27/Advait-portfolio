@@ -3,9 +3,11 @@
 //   Inbox → Header Scan → PII-Masked Body Fetch → Signal Classification
 //   (Claude Sonnet 4.6) → 4-Tier Churn Engine
 //
-// Data "packets" travel along the path; at the PII-mask node a packet's label
-// visibly transforms into ●●●● before continuing. A HUD counts up the LLM cost
-// reduction. Lazy-inits via IntersectionObserver and disposes when offscreen.
+// Labelled data "packets" travel along the path; at the PII-mask node a packet's
+// label visibly transforms into ●●●● before continuing. A continuous stream of
+// flow dots, breathing nodes, a drifting particle field and a cinematic sway keep
+// the scene alive without the messy full-spin overlap. A HUD counts up the LLM
+// cost reduction. Lazy-inits via IntersectionObserver and disposes when offscreen.
 // Falls back to a static SVG diagram when WebGL is unavailable OR the visitor
 // prefers reduced motion.
 
@@ -68,32 +70,65 @@ async function initPipeline(mount) {
   let renderer, scene, camera, controls, raf;
   let running = false;
   let built = false;
+  let isDragging = false;
+  let tSec = 0; // accumulated seconds, drives all idle motion
   const disposables = [];
   const packets = [];
+  const flowDots = [];
+  const nodes = []; // { mesh, phase, baseEmissive }
+  const tubes = []; // connector meshes (pulsing)
   const nodePositions = [];
 
   // ---- label sprite helper ----------------------------------------------
-  function makeLabel(text, color = "#dfe9f5", scale = 1) {
-    const pad = 16;
-    const font = 'bold 42px "JetBrains Mono", monospace';
+  function roundRect(ctx, x, y, w, h, r) {
+    ctx.beginPath();
+    ctx.moveTo(x + r, y);
+    ctx.arcTo(x + w, y, x + w, y + h, r);
+    ctx.arcTo(x + w, y + h, x, y + h, r);
+    ctx.arcTo(x, y + h, x, y, r);
+    ctx.arcTo(x, y, x + w, y, r);
+    ctx.closePath();
+  }
+
+  // Labels get a translucent rounded plate + always-on-top draw so they stay
+  // legible against the spheres and one another.
+  function makeLabel(text, color = "#dfe9f5", scale = 1, stroke = "rgba(127,216,255,0.3)") {
+    const pad = 20;
+    const font = '600 42px "JetBrains Mono", monospace';
     const measure = document.createElement("canvas").getContext("2d");
     measure.font = font;
-    const w = Math.ceil(measure.measureText(text).width) + pad * 2;
-    const h = 72;
+    const tw = Math.ceil(measure.measureText(text).width);
+    const w = tw + pad * 2;
+    const h = 88;
     const c = document.createElement("canvas");
     c.width = w;
     c.height = h;
     const ctx = c.getContext("2d");
+
+    ctx.fillStyle = "rgba(7, 11, 20, 0.74)";
+    ctx.strokeStyle = stroke;
+    ctx.lineWidth = 2;
+    roundRect(ctx, 3, 16, w - 6, h - 32, 24);
+    ctx.fill();
+    ctx.stroke();
+
     ctx.font = font;
     ctx.textBaseline = "middle";
     ctx.textAlign = "center";
     ctx.fillStyle = color;
-    ctx.fillText(text, w / 2, h / 2 + 2);
+    ctx.fillText(text, w / 2, h / 2 + 1);
+
     const tex = new THREE.CanvasTexture(c);
     tex.anisotropy = 4;
-    const mat = new THREE.SpriteMaterial({ map: tex, transparent: true, depthWrite: false });
+    const mat = new THREE.SpriteMaterial({
+      map: tex,
+      transparent: true,
+      depthWrite: false,
+      depthTest: false, // draw over geometry so labels never get buried
+    });
     const sprite = new THREE.Sprite(mat);
-    sprite.scale.set((w / h) * 0.9 * scale, 0.9 * scale, 1);
+    sprite.scale.set((w / h) * 1.05 * scale, 1.05 * scale, 1);
+    sprite.renderOrder = 10;
     disposables.push(tex, mat);
     return sprite;
   }
@@ -104,7 +139,7 @@ async function initPipeline(mount) {
 
     scene = new THREE.Scene();
     camera = new THREE.PerspectiveCamera(42, width / height, 0.1, 100);
-    camera.position.set(0, 3.2, 13);
+    camera.position.set(0, 2.6, 13);
 
     renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
     renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
@@ -143,8 +178,25 @@ async function initPipeline(mount) {
       disposables.push(mat);
       const node = new THREE.Mesh(nodeGeo, mat);
       node.position.copy(pos);
-      node.userData.spin = 0.4 + i * 0.05;
+      node.userData.spin = 0.3 + i * 0.04;
       group.add(node);
+      nodes.push({ mesh: node, phase: i * 0.9, baseEmissive: 0.55 });
+
+      // soft glow halo behind each node
+      const haloMat = new THREE.SpriteMaterial({
+        map: makeGlowTexture(),
+        color: STAGES[i].color,
+        transparent: true,
+        opacity: 0.5,
+        depthWrite: false,
+        blending: THREE.AdditiveBlending,
+      });
+      disposables.push(haloMat, haloMat.map);
+      const halo = new THREE.Sprite(haloMat);
+      halo.scale.set(3.2, 3.2, 1);
+      halo.position.copy(pos);
+      node.userData.halo = halo;
+      group.add(halo);
 
       // PII node gets a translucent "shield" cage
       if (i === PII_INDEX) {
@@ -162,8 +214,18 @@ async function initPipeline(mount) {
         node.userData.cage = cage;
       }
 
-      const label = makeLabel(STAGES[i].name, "#eaf2fb", 1);
-      label.position.set(x, 1.5, 0);
+      const isFinal = i === N - 1;
+      const labelColor = isFinal ? "#d8ffb0" : i === PII_INDEX ? "#bcd4ff" : "#eaf2fb";
+      const labelStroke = isFinal
+        ? "rgba(184,255,106,0.45)"
+        : i === PII_INDEX
+        ? "rgba(79,123,255,0.5)"
+        : "rgba(127,216,255,0.3)";
+      const label = makeLabel(STAGES[i].name, labelColor, 0.92, labelStroke);
+      label.position.set(x, 1.85, 0);
+      label.userData.baseY = 1.85;
+      label.userData.phase = i * 0.7;
+      node.userData.label = label;
       group.add(label);
 
       // connector to previous node
@@ -175,39 +237,79 @@ async function initPipeline(mount) {
         const tubeMat = new THREE.MeshBasicMaterial({
           color: 0x7fd8ff,
           transparent: true,
-          opacity: 0.35,
+          opacity: 0.32,
         });
         disposables.push(tubeGeo, tubeMat);
         const tube = new THREE.Mesh(tubeGeo, tubeMat);
         tube.position.copy(a.clone().lerp(b, 0.5));
         tube.rotation.z = Math.PI / 2;
         group.add(tube);
+        tubes.push(tube);
       }
     }
 
-    // packets
-    const packetGeo = new THREE.SphereGeometry(0.16, 16, 16);
+    // continuous "data stream" — many small dots flowing the whole path
+    const flowGeo = new THREE.SphereGeometry(0.07, 8, 8);
+    const flowMat = new THREE.MeshBasicMaterial({ color: 0xaef0ff });
+    disposables.push(flowGeo, flowMat);
+    const FLOW_COUNT = 16;
+    for (let d = 0; d < FLOW_COUNT; d++) {
+      const dot = new THREE.Mesh(flowGeo, flowMat);
+      group.add(dot);
+      flowDots.push({
+        mesh: dot,
+        t: (d / FLOW_COUNT) * (N - 1),
+        speed: 0.75 + (d % 4) * 0.12,
+      });
+    }
+
+    // labelled packets (carry the PII-masking story)
+    const packetGeo = new THREE.SphereGeometry(0.18, 16, 16);
     disposables.push(packetGeo);
     for (let p = 0; p < 3; p++) {
       const mat = new THREE.MeshStandardMaterial({
         color: 0xffffff,
         emissive: LIME,
-        emissiveIntensity: 0.9,
+        emissiveIntensity: 0.95,
       });
       disposables.push(mat);
       const mesh = new THREE.Mesh(packetGeo, mat);
-      const label = makeLabel(SAMPLE[p % SAMPLE.length], "#bff5d0", 0.62);
+      const label = makeLabel(SAMPLE[p % SAMPLE.length], "#c7ffd6", 0.6, "rgba(184,255,106,0.4)");
       mesh.add(label);
-      label.position.set(0, 0.55, 0);
+      label.position.set(0, 0.62, 0);
       group.add(mesh);
       packets.push({
         mesh,
         label,
         text: SAMPLE[p % SAMPLE.length],
         t: (p / 3) * (N - 1), // stagger along the path
+        speed: 0.5 + p * 0.06,
         masked: false,
       });
     }
+
+    // drifting particle field for depth
+    const PARTICLES = 150;
+    const pGeo = new THREE.BufferGeometry();
+    const pPos = new Float32Array(PARTICLES * 3);
+    for (let i = 0; i < PARTICLES; i++) {
+      pPos[i * 3] = (Math.random() - 0.5) * 16;
+      pPos[i * 3 + 1] = (Math.random() - 0.5) * 8;
+      pPos[i * 3 + 2] = (Math.random() - 0.5) * 8;
+    }
+    pGeo.setAttribute("position", new THREE.BufferAttribute(pPos, 3));
+    const pMat = new THREE.PointsMaterial({
+      color: 0x7fd8ff,
+      size: 0.05,
+      transparent: true,
+      opacity: 0.45,
+      depthWrite: false,
+      blending: THREE.AdditiveBlending,
+    });
+    disposables.push(pGeo, pMat);
+    const particles = new THREE.Points(pGeo, pMat);
+    group.add(particles);
+    scene.userData.particles = particles;
 
     scene.userData.group = group;
 
@@ -217,30 +319,48 @@ async function initPipeline(mount) {
     controls.enablePan = false;
     controls.minDistance = 8;
     controls.maxDistance = 20;
-    controls.autoRotate = true;
-    controls.autoRotateSpeed = 0.8;
+    controls.autoRotate = false; // idle motion is the gentle group sway instead
     controls.target.set(0, 0, 0);
-    // pause auto-rotate while the user is actively dragging
-    controls.addEventListener("start", () => (controls.autoRotate = false));
-    controls.addEventListener("end", () => (controls.autoRotate = true));
+    controls.addEventListener("start", () => (isDragging = true));
+    controls.addEventListener("end", () => (isDragging = false));
 
     built = true;
     runHud(mount);
   }
 
+  // radial glow sprite texture (shared helper)
+  function makeGlowTexture() {
+    const s = 128;
+    const c = document.createElement("canvas");
+    c.width = c.height = s;
+    const ctx = c.getContext("2d");
+    const g = ctx.createRadialGradient(s / 2, s / 2, 0, s / 2, s / 2, s / 2);
+    g.addColorStop(0, "rgba(255,255,255,0.9)");
+    g.addColorStop(0.25, "rgba(255,255,255,0.35)");
+    g.addColorStop(1, "rgba(255,255,255,0)");
+    ctx.fillStyle = g;
+    ctx.fillRect(0, 0, s, s);
+    return new THREE.CanvasTexture(c);
+  }
+
+  function pathPos(t) {
+    const N = STAGES.length;
+    const seg = Math.floor(t);
+    const local = t - seg;
+    const a = nodePositions[Math.min(seg, N - 1)];
+    const b = nodePositions[Math.min(seg + 1, N - 1)];
+    return a.clone().lerp(b, local);
+  }
+
   function updatePacket(pk, dt) {
     const N = STAGES.length;
-    pk.t += dt * 0.55;
+    pk.t += dt * pk.speed;
     if (pk.t >= N - 1) {
       pk.t -= N - 1; // loop
       pk.masked = false;
       if (pk.label) setLabelMasked(pk, false);
     }
-    const seg = Math.floor(pk.t);
-    const local = pk.t - seg;
-    const a = nodePositions[seg];
-    const b = nodePositions[Math.min(seg + 1, N - 1)];
-    pk.mesh.position.copy(a.clone().lerp(b, local));
+    pk.mesh.position.copy(pathPos(pk.t));
 
     // signature beat: transform to masked once past the PII node
     if (!pk.masked && pk.t >= PII_INDEX) {
@@ -256,8 +376,10 @@ async function initPipeline(mount) {
       pk.label.material.dispose();
       if (tex) tex.dispose();
     }
-    const newLabel = makeLabel(masked ? MASKED : pk.text, masked ? "#9fd0ff" : "#bff5d0", 0.62);
-    newLabel.position.set(0, 0.55, 0);
+    const newLabel = masked
+      ? makeLabel(MASKED, "#a9d4ff", 0.6, "rgba(79,123,255,0.5)")
+      : makeLabel(pk.text, "#c7ffd6", 0.6, "rgba(184,255,106,0.4)");
+    newLabel.position.set(0, 0.62, 0);
     pk.mesh.add(newLabel);
     pk.label = newLabel;
     pk.mesh.material.emissive.setHex(masked ? BLUE : LIME);
@@ -269,13 +391,51 @@ async function initPipeline(mount) {
     raf = requestAnimationFrame(loop);
     const dt = lastTime ? Math.min((time - lastTime) / 1000, 0.05) : 0.016;
     lastTime = time;
+    tSec += dt;
 
     const group = scene.userData.group;
-    group.children.forEach((ch) => {
-      if (ch.userData.spin) ch.rotation.y += ch.userData.spin * dt;
-      if (ch.userData.cage) ch.userData.cage.rotation.y -= 0.3 * dt;
+
+    // breathing nodes: emissive pulse + subtle scale + spinning + bobbing halo
+    nodes.forEach((n) => {
+      const pulse = 0.5 + 0.5 * Math.sin(tSec * 2 + n.phase);
+      n.mesh.material.emissiveIntensity = n.baseEmissive + pulse * 0.5;
+      const s = 1 + pulse * 0.06;
+      n.mesh.scale.setScalar(s);
+      n.mesh.rotation.y += n.mesh.userData.spin * dt;
+      if (n.mesh.userData.halo) n.mesh.userData.halo.material.opacity = 0.3 + pulse * 0.35;
+      if (n.mesh.userData.cage) n.mesh.userData.cage.rotation.y -= 0.35 * dt;
+      if (n.mesh.userData.label) {
+        const lb = n.mesh.userData.label;
+        lb.position.y = lb.userData.baseY + Math.sin(tSec * 1.4 + lb.userData.phase) * 0.06;
+      }
     });
+
+    // pulsing connectors
+    tubes.forEach((tube, i) => {
+      tube.material.opacity = 0.22 + 0.16 * (0.5 + 0.5 * Math.sin(tSec * 3 - i * 0.8));
+    });
+
+    // continuous data stream
+    const N = STAGES.length;
+    flowDots.forEach((fd) => {
+      fd.t += dt * fd.speed;
+      if (fd.t >= N - 1) fd.t -= N - 1;
+      fd.mesh.position.copy(pathPos(fd.t));
+    });
+
     packets.forEach((pk) => updatePacket(pk, dt));
+
+    // drifting particles
+    if (scene.userData.particles) scene.userData.particles.rotation.y += dt * 0.04;
+
+    // cinematic idle motion: gentle pendulum sway + tilt + bob (paused while dragging)
+    if (!isDragging) {
+      const targetY = Math.sin(tSec * 0.32) * 0.34;
+      group.rotation.y += (targetY - group.rotation.y) * 0.04;
+      group.rotation.x = Math.sin(tSec * 0.24) * 0.07;
+      group.position.y = Math.sin(tSec * 0.6) * 0.12;
+    }
+
     controls.update();
     renderer.render(scene, camera);
   }
@@ -299,6 +459,9 @@ async function initPipeline(mount) {
     disposables.forEach((d) => d.dispose && d.dispose());
     disposables.length = 0;
     packets.length = 0;
+    flowDots.length = 0;
+    nodes.length = 0;
+    tubes.length = 0;
     nodePositions.length = 0;
     if (renderer) {
       renderer.dispose();
