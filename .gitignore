@@ -16,6 +16,9 @@ deno.lock
 # Python virtual environment
 .venv/
 
+# Next.js rebuild experiment — local build artifacts only (no source tracked)
+next-portfolio/
+
 # Claude Code agent config & memory (local only)
 .claude/
 .ideavo/project
