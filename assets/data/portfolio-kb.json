@@ -1,34 +1,34 @@
 {
   "person": "Advait Dharmadhikari",
-  "updated": "2026-06",
+  "updated": "2026-07",
   "chunks": [
     {
       "id": "about-overview",
       "section": "about",
       "label": "About → Overview",
       "anchor": ".about-text",
-      "text": "Advait Dharmadhikari works at the intersection of AI systems, business strategy, and technology consulting — translating complex business problems into production-ready intelligence systems that people actually use. His background is unusual by design: he came into AI through business and operations, not purely engineering, so before models, architecture, or tooling, his first question is always 'what decision are we improving?'. He builds AI-first systems: LLM architectures, RAG pipelines, semantic search, agentic workflows, and AI product strategy, leading end-to-end development from concept to production while balancing model performance, latency, cost optimisation, governance, and real-world usability. He is currently pursuing an MSc in Business Analytics at UCD Michael Smurfit Graduate Business School, with formal AI & ML training from IIT Kanpur. He writes on strategy, analytics, and AI, hosts two podcasts, mentors early-career professionals, and is open to consulting in Ireland and globally."
+      "text": "Advait Dharmadhikari is a Forward Deployed AI Engineer — he builds AI systems that production teams actually ship. His work sits where the code meets the customer: embedding with teams, scoping the real problem, and carrying LLM architectures, RAG pipelines, and agentic workflows all the way to production. His background is unusual by design: he came into AI through business and operations, not purely engineering, so before models, architecture, or tooling, his first question is always 'what decision are we improving?'. At Frensei (ClawbackVault AI) he designed a three-stage email intelligence pipeline that cut LLM token spend by 80–90% per broker while meeting CASA Tier 2 and Google OAuth Restricted Scope compliance, built a four-tier signal-detection engine on Claude Sonnet, partners directly with the CEO on product strategy and pricing, and built and led a 15-person cross-functional team. He is completing an MSc in Business Analytics at UCD Michael Smurfit (graduating 2026) with formal AI & ML training from IIT Kanpur, authors open-source PyPI packages (hallucimap, finfeatures, fraudguard), writes on AI and strategy, hosts two podcasts, and is open to Founding AI Engineer, Applied AI Engineer, Forward Deployed Engineer, and AI consulting roles in Ireland, Europe, and globally."
     },
     {
       "id": "hero-highlights",
       "section": "about",
       "label": "About → Highlights",
       "anchor": ".hero-panel",
-      "text": "Advait is a forward deployed engineer working at the intersection of AI systems, business strategy, and technology consulting. He turns ambiguous problems into LLM architectures, agentic workflows, and decision products that people actually use, balancing performance, cost, latency, and governance. Headline metrics: supported a 300+ aircraft fleet with ML-driven operations optimisation at IndiGo; cut AI/LLM token cost by roughly 80–90% via a targeted-surveillance architecture; published 18+ long-form articles on AI, analytics and strategy; and hosts 2 podcasts on business technology and growth. Focus areas: LLM architecture, agentic AI, RAG pipelines, AI product strategy, AI evaluation, digital transformation, and decision intelligence."
+      "text": "Advait is a Forward Deployed AI Engineer — he embeds with teams to turn ambiguous business problems into production LLM systems: RAG pipelines, agentic workflows with LangGraph, and multi-agent orchestration that reduce costs, improve decisions, and scale, balancing performance, cost, latency, and compliance. Headline metrics: supported a 300+ aircraft fleet with ML-driven operations optimisation at IndiGo; cut AI/LLM token cost by roughly 80–90% via a targeted-surveillance architecture; reduced hallucinations by 60% through rigorous AI evaluation practices; and built and led a 15-person cross-functional team across AI engineering, cybersecurity, and analytics. Focus areas: forward deployed engineering, LLM systems, agentic AI (LangGraph), RAG pipelines, AI security & compliance, AI evaluation, and AI product strategy."
     },
     {
       "id": "services",
       "section": "about",
       "label": "About → What I do",
       "anchor": ".service",
-      "text": "What Advait does: (1) AI Systems & LLM Architecture — designing LLM applications, RAG pipelines, semantic search, and agentic workflows built for performance, cost, and governance from day one. (2) AI Product Strategy — owning product vision and roadmaps end-to-end, from research ingestion to structured outputs, with AI evaluation practices that keep systems reliable. He leads work from concept through to production."
+      "text": "What Advait does: (1) Forward Deployed AI Engineering — embedding with teams to take AI from zero to production: scoping the business problem, shipping the LLM system, and iterating with real users until it delivers measurable outcomes. (2) AI Systems & LLM Architecture — RAG pipelines, semantic search, and agentic workflows with LangGraph & LangChain; multi-agent orchestration built for performance, cost, and reliability. (3) AI Security & Compliance — AES-256-GCM encryption, PII masking ahead of every LLM call, prompt-injection protection, OAuth 2.0, and GDPR-ready data handling. (4) Business Translation & Product Strategy — 'what decision are we improving?', roadmaps, pricing architecture, and go-to-market timing, communicated as fluently to founders as to infrastructure engineers."
     },
     {
       "id": "clawbackvault",
       "section": "about",
       "label": "Currently building → ClawbackVault",
       "anchor": ".now-building",
-      "text": "Advait is the Founding Engineer building ClawbackVault AI at Frensei (status: Live). It is a Full-Stack, AI, Fintech product that protects broker commissions from silent client churn. He owns the end-to-end build: a targeted-surveillance architecture that replaced full-inbox scanning and cut Claude API spend per broker by 80–90%; a three-stage processing pipeline (header scan → PII-masked body fetch → signal classification) where email bodies never touch the database; and a four-tier churn-signal engine powered by Claude Sonnet 4.6 across 15+ behavioural categories. Other features: a two-pass Gmail/Outlook fetcher via Gmail API and Microsoft Graph (OAuth 2.0); a 'Ghost Audit' 60-second inbox scan surfacing commission-at-risk in real time; AES-256-GCM encryption, PII masking before every LLM call, and prompt-injection protection; row-level multi-tenant isolation across EU-West and Asia-Pacific with full GDPR export. Stack: Claude Sonnet 4.6, Supabase, OAuth 2.0, RAG, CASA Tier 2."
+      "text": "Advait is the Founding AI Engineer & Product Lead building ClawbackVault AI at Frensei (status: Live). It is a Full-Stack, AI, Fintech product that protects broker commissions from silent client churn. He owns the end-to-end build: a targeted-surveillance architecture that replaced full-inbox scanning and cut Claude API spend per broker by 80–90%; a three-stage processing pipeline (header scan → PII-masked body fetch → signal classification) where email bodies never touch the database; and a four-tier churn-signal engine powered by Claude Sonnet 4.6 across 15+ behavioural categories. Other features: a two-pass Gmail/Outlook fetcher via Gmail API and Microsoft Graph (OAuth 2.0); a 'Ghost Audit' 60-second inbox scan surfacing commission-at-risk in real time; AES-256-GCM encryption, PII masking before every LLM call, and prompt-injection protection; row-level multi-tenant isolation across EU-West and Asia-Pacific with full GDPR export. Stack: Claude Sonnet 4.6, Supabase, OAuth 2.0, RAG, CASA Tier 2."
     },
     {
       "id": "cbv-pipeline",
@@ -49,7 +49,7 @@
       "section": "about",
       "label": "About → Tools & stack",
       "anchor": ".stack",
-      "text": "Advait's tools and stack span LLM and AI engineering (Claude / Anthropic API, RAG, semantic search, agentic workflows, AI evaluation), data science and ML, cloud (GCP, Azure), databases (Supabase), and BI/analytics. He pairs applied AI engineering with product and business-analysis skills."
+      "text": "Advait's tools and stack: AI & LLMs — Claude, LangGraph, LangChain, RAG, multi-agent orchestration, semantic search, Pydantic AI; data & ML — Python, SQL, scikit-learn, TensorFlow, PyTorch, Pandas; platform & cloud — Supabase, GCP, Azure, OAuth 2.0, Gmail API, Microsoft Graph, Power BI/Tableau. He pairs applied AI engineering with product and business-analysis skills."
     },
     {
       "id": "education",
@@ -63,21 +63,21 @@
       "section": "resume",
       "label": "Experience → Frensei",
       "anchor": "[data-kb-anchor='exp-frensei']",
-      "text": "At Frensei (Dublin), Advait is AI Consultant and Founding Engineer (May 2026 – Present): founding engineer on ClawbackVault AI, owning the end-to-end scrum programme across a 4-phase roadmap and partnering with the CEO on product, pricing, and go-to-market. He designed a targeted-surveillance architecture that cut Claude API spend per broker by 80–90%, a privacy-first processing pipeline, and a Claude Sonnet 4.6 signal engine across 15+ behavioural categories with AES-256-GCM encryption, PII masking, and GDPR compliance built in. Previously he was Technical Lead – AI & Product Management (December 2025 – May 2026): led design and execution of Frensei's AI-first intelligence platform from zero to scale, owning both product strategy and applied AI architecture; built agentic systems (planning, execution, verification, feedback), LLM pipelines (RAG, semantic search, long-context reasoning), and AI evaluation practices that cut hallucinations and lifted output consistency by 40%, while driving technical hiring and architectural standards."
+      "text": "At Frensei (Dublin), Advait is Founding AI Engineer & Product Lead (December 2025 – Present) on ClawbackVault AI — an AI-first compliance intelligence product for financial services broker-dealers — owning full-stack AI architecture, product strategy, and team leadership from 0 to scale. He architected a three-stage targeted-surveillance pipeline (header scan → PII-masked body fetch → LLM signal classification) cutting LLM token spend per broker by 80–90% while strengthening privacy compliance; built a four-tier signal-detection engine on Claude Sonnet 4.6 classifying client-churn signals across 15+ behavioural categories with tiered confidence scoring and full evidence-trail audit logging; designed agentic AI systems with planning, execution, verification, and feedback loops; and reduced hallucinations and improved output consistency by 60% through rigorous AI evaluation. He implemented AES-256-GCM encryption at rest, PII masking ahead of every LLM call, prompt-injection protection, and GDPR data-portability export; integrated Gmail API and Microsoft Graph via OAuth 2.0 with a two-pass fetcher and row-level security isolation across Supabase tenants (EU-West, Asia-Pacific). He partners directly with the Founder/CEO on product strategy, the four-phase roadmap (MVP → platform scale), and pricing-tier design, and built and led a 15-person cross-functional team spanning AI engineering, cybersecurity, and analytics. Stack: Claude Sonnet 4.6, LLM pipelines, agentic AI, RAG, semantic search, LangGraph, Python, Supabase, Gmail API, Microsoft Graph, OAuth 2.0, AES-256-GCM, GDPR compliance."
     },
     {
       "id": "exp-indigo",
       "section": "resume",
       "label": "Experience → IndiGo",
       "anchor": "[data-kb-anchor='exp-indigo']",
-      "text": "At IndiGo (InterGlobe Aviation Ltd), Advait was Business Analyst – Business Technology & Product (January 2024 – August 2025): led business analysis and product delivery for operations-control applications across a 300+ aircraft fleet, owning requirement definition and stakeholder alignment, and leading ML-driven optimisation including aircraft zero-fuel-weight prediction and on-time-performance cost models — delivering roughly 20% operational cost savings with executive usability front of mind. Earlier he was Business Intelligence Engineer – Business Technology & Product (June 2023 – December 2023): owned requirements gathering, solution design, and reporting logic, delivering production-ready BI in cloud-enabled environments (GCP, Azure) for leadership and cross-functional teams."
+      "text": "At IndiGo (InterGlobe Aviation Ltd), Advait was Business Analyst & ML Engineer (January 2024 – August 2025): led ML-driven optimisation and decision intelligence across a 300+ aircraft operational fleet at one of the world's largest airlines. He designed and delivered aircraft zero-fuel-weight prediction models and on-time-performance cost models achieving roughly 20% operational cost savings, led end-to-end ML requirements definition and stakeholder alignment, and built production BI and insight frameworks on GCP and Azure that improved decision quality by 40% across cross-functional leadership. Earlier he was Business Intelligence Engineer – Business Technology & Product (June 2023 – December 2023): owned requirements gathering, solution design, and reporting logic, delivering production-ready BI in cloud-enabled environments (GCP, Azure) for leadership and cross-functional teams."
     },
     {
       "id": "exp-teaching",
       "section": "resume",
       "label": "Experience → Teaching & mentoring",
       "anchor": "[data-kb-anchor='exp-teaching']",
-      "text": "Teaching and mentoring: Teaching Assistant – Digital Technologies in Business at University College Dublin (January 2026 – May 2026), supporting teaching across digital transformation, data-driven decision-making, AI, and analytics, bridging academic frameworks with industry use cases and guiding 150+ students through projects, case studies, and presentations. Business Analytics & Machine Learning Mentor on topmate.io (January 2025 – Present), mentoring early-career professionals on analytics, ML fundamentals, project framing, and career direction across a global audience."
+      "text": "Teaching and mentoring: Teaching Assistant – Digital Technologies in Business at University College Dublin (January 2026 – May 2026), supporting teaching across digital transformation, data-driven decision-making, AI, and analytics, bridging academic frameworks with industry use cases and guiding 150+ students through projects, case studies, and presentations. Business Analytics & Machine Learning Mentor on topmate.io (January 2025 – May 2026), 1-on-1 mentorship for professionals transitioning into AI/ML engineering and business analytics roles — LLM application development, career positioning, and technical skill-building."
     },
     {
       "id": "exp-consulting",
@@ -91,7 +91,7 @@
       "section": "resume",
       "label": "Resume → Skills",
       "anchor": ".skill",
-      "text": "Advait's skills cover applied AI engineering (LLM architecture, RAG pipelines, semantic search, agentic workflows, AI evaluation), machine learning and data science, business intelligence and analytics, product strategy and management, and business analysis — with cloud experience on GCP and Azure."
+      "text": "Advait's skills: LLM systems & agentic AI (RAG, LangGraph, Claude, multi-agent orchestration); forward deployed engineering (0→1 production AI, customer embedding, AI evaluation); AI security & compliance (AES-256-GCM, PII masking, OAuth 2.0, GDPR); business translation & AI product strategy (roadmaps, pricing, executive alignment); and analytics & ML engineering (Python, SQL, GCP/Azure, forecasting, BI)."
     },
     {
       "id": "proj-clawbackvault",
@@ -133,7 +133,7 @@
       "section": "contact",
       "label": "Contact → Get in touch",
       "anchor": ".contact-intro",
-      "text": "Advait is open to consulting, AI strategy, and forward-deployed engineering work in Ireland and globally. The fastest way to reach him is email or LinkedIn. Email: advaitdharmadhikari27@gmail.com. LinkedIn: linkedin.com/in/advaitdharmadhikari. GitHub: github.com/advait27. Location: Dublin, Ireland. There is also a contact form on the site."
+      "text": "Advait is open to Founding AI Engineer, Applied AI Engineer, Forward Deployed Engineer, and AI consulting roles in Ireland, Europe, and globally — especially teams building with LLMs, RAG, or agentic AI. The fastest way to reach him is email or LinkedIn. Email: advaitdharmadhikari27@gmail.com. LinkedIn: linkedin.com/in/advaitdharmadhikari. GitHub: github.com/advait27. Location: Dublin, Ireland. There is also a contact form on the site."
     }
   ]
 }
