@@ -18,6 +18,13 @@ import { fileURLToPath } from "node:url";
 
 const NVIDIA_URL = "https://integrate.api.nvidia.com/v1/chat/completions";
 const MODEL = process.env.NVIDIA_MODEL || "meta/llama-3.3-70b-instruct";
+// The primary model can sit in a long queue on build.nvidia.com (observed
+// 14s+ TTFB; worse from Netlify's region, exceeding the 30s function limit).
+// Give it a short header budget, then fall back to a lighter model so the
+// visitor always gets an answer.
+const FALLBACK_MODEL = process.env.NVIDIA_FALLBACK_MODEL || "meta/llama-3.1-8b-instruct";
+const PRIMARY_TIMEOUT_MS = 8_000;
+const FALLBACK_TIMEOUT_MS = 15_000;
 const MAX_INPUT_CHARS = 500;
 const MAX_OUTPUT_TOKENS = 512;
 const CITE_MARKER = "[[CITES]]";
@@ -181,31 +188,48 @@ export default async (req, context) => {
   }
   messages.push({ role: "user", content: question });
 
-  // Call NVIDIA with streaming enabled.
-  let upstream;
-  try {
-    upstream = await fetch(NVIDIA_URL, {
-      method: "POST",
-      headers: {
-        Authorization: `Bearer ${process.env.NVIDIA_API_KEY}`,
-        "Content-Type": "application/json",
-        Accept: "text/event-stream",
-      },
-      body: JSON.stringify({
-        model: MODEL,
-        messages,
-        temperature: 0.2,
-        top_p: 0.7,
-        max_tokens: MAX_OUTPUT_TOKENS,
-        stream: true,
-      }),
-    });
-  } catch {
-    return json({ message: "Could not reach the model." }, 502, baseHeaders);
+  // Call NVIDIA with streaming enabled: primary model first with a short
+  // header budget, then the fallback model.
+  const attempts =
+    MODEL === FALLBACK_MODEL
+      ? [{ model: MODEL, timeoutMs: FALLBACK_TIMEOUT_MS }]
+      : [
+          { model: MODEL, timeoutMs: PRIMARY_TIMEOUT_MS },
+          { model: FALLBACK_MODEL, timeoutMs: FALLBACK_TIMEOUT_MS },
+        ];
+
+  let upstream = null;
+  for (const attempt of attempts) {
+    try {
+      const res = await fetch(NVIDIA_URL, {
+        method: "POST",
+        headers: {
+          Authorization: `Bearer ${process.env.NVIDIA_API_KEY}`,
+          "Content-Type": "application/json",
+          Accept: "text/event-stream",
+        },
+        body: JSON.stringify({
+          model: attempt.model,
+          messages,
+          temperature: 0.2,
+          top_p: 0.7,
+          max_tokens: MAX_OUTPUT_TOKENS,
+          stream: true,
+        }),
+        signal: AbortSignal.timeout(attempt.timeoutMs),
+      });
+      if (res.ok && res.body) {
+        upstream = res;
+        break;
+      }
+      console.error(`ask: upstream ${attempt.model} returned ${res.status}`);
+    } catch (err) {
+      console.error(`ask: upstream ${attempt.model} failed: ${err?.name || err}`);
+    }
   }
 
-  if (!upstream.ok || !upstream.body) {
-    return json({ message: "The model returned an error." }, 502, baseHeaders);
+  if (!upstream) {
+    return json({ message: "The model is busy right now — try again in a moment." }, 503, baseHeaders);
   }
 
   // Transform the upstream OpenAI-style SSE into our token/cite/done protocol,
