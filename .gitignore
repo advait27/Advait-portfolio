@@ -18,3 +18,5 @@ deno.lock
 
 # Claude Code agent config & memory (local only)
 .claude/
+.ideavo/project
+*.log
