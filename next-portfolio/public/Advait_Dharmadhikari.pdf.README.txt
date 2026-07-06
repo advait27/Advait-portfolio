@@ -1,0 +1,11 @@
+RESUME PLACEHOLDER
+==================
+
+The Resume link in the navigation and mobile overlay points to:
+
+    /Advait_Dharmadhikari.pdf
+
+Drop your real resume PDF in this `public/` folder with that exact filename and the
+link will work automatically — no code changes needed.
+
+(This .txt file is just a reminder and can be deleted.)
