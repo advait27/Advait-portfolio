@@ -29,6 +29,7 @@ Start here:
   cat about.txt
   ls experience/
   cat experience/frensei.md
+  ls research/
   cat contact.txt
   open resume.pdf
 
@@ -44,11 +45,12 @@ so before models or tooling my first question is always:
 "what decision are we improving?"
 
 Currently: Founding AI Engineer & Product Lead at Frensei
-(ClawbackVault AI) while completing an MSc in Business Analytics
-at UCD Michael Smurfit (graduating 2026).
+Innovation Labs (ClawbackVault AI). MSc Business Analytics,
+UCD Michael Smurfit (2025-2026). First author of two research
+preprints on production AI systems (see research/).
 
-Open to: Founding AI Engineer · Applied AI Engineer ·
-Forward Deployed Engineer · AI Consulting — Ireland, Europe, global.`),
+Open to: Forward Deployed Engineer · Founding AI Engineer ·
+Applied AI Engineer · AI consulting. Ireland, Europe, global.`),
 
     "skills.txt": F(`
 [##########] 90%  LLM Systems & Agentic AI (RAG, LangGraph, Claude)
@@ -57,13 +59,16 @@ Forward Deployed Engineer · AI Consulting — Ireland, Europe, global.`),
 [########--] 85%  Business Translation & AI Product Strategy
 [########--] 80%  Analytics & ML Engineering (Python, SQL, GCP/Azure)
 
-Stack: Claude · LangGraph · LangChain · RAG · Pydantic AI ·
-Python · SQL · Supabase · GCP · Azure · OAuth 2.0 ·
-Gmail API · Microsoft Graph · Power BI / Tableau`),
+AI:       agentic & multi-agent systems · RAG · MCP · evals
+LLMs:     Claude · OpenAI · open-weight models · LangGraph
+Platform: Python · TypeScript · FastAPI · Docker · Postgres (RLS)
+          Redis · Qdrant · Neo4j · DuckDB · Supabase · OpenTelemetry
+Cloud:    GCP · Azure · OAuth 2.0 · AES-256-GCM · GDPR · CASA Tier 2`),
 
     "education.txt": F(`
 2025-2026  MSc Business Analytics
            UCD Michael Smurfit Graduate Business School, Dublin
+           Global Leadership Programme · UCD Advantage Award
 
 2023-2024  PG Certification, AI & Machine Learning
            Indian Institute of Technology, Kanpur
@@ -72,6 +77,7 @@ Gmail API · Microsoft Graph · Power BI / Tableau`),
            Christ University, Bangalore`),
 
     "certifications.txt": F(`
+- Global Leadership Programme (awarded by the Dean, UCD College of Business)
 - UCD Advantage Award (honor)
 - Data Strategy — professional certification
 - Introduction to Model Context Protocol
@@ -100,12 +106,12 @@ Tip: 'open links/linkedin.url' opens LinkedIn in a new tab.`),
 
     experience: D({
       "frensei.md": F(`
-# Founding AI Engineer & Product Lead — Frensei (ClawbackVault AI)
-  Dublin · December 2025 - Present
+# Founding AI Engineer & Product Lead — Frensei Innovation Labs
+  (ClawbackVault AI) · Dublin · December 2025 - Present
 
-AI-first compliance intelligence for financial services
-broker-dealers. Own full-stack AI architecture, product strategy,
-and team leadership from 0 to scale.
+AI-first compliance intelligence for financial-services
+broker-dealers. Own full-stack AI architecture, enterprise
+deployment and product strategy from 0 to scale.
 
 * Three-stage targeted-surveillance pipeline (header scan ->
   PII-masked body fetch -> LLM signal classification):
@@ -113,29 +119,31 @@ and team leadership from 0 to scale.
 * Four-tier signal-detection engine on Claude Sonnet 4.6 across
   15+ behavioural categories, tiered confidence scoring, full
   evidence-trail audit logging.
-* Agentic AI systems with planning, execution, verification &
-  feedback loops; hallucinations down 60% via rigorous evals.
-* AES-256-GCM at rest, PII masking before every LLM call,
-  prompt-injection protection, GDPR export; CASA Tier 2 and
-  Google OAuth Restricted Scope compliance.
-* Gmail API + Microsoft Graph via OAuth 2.0; row-level security
-  across Supabase tenants (EU-West, Asia-Pacific).
-* Partner directly with the Founder/CEO on roadmap and pricing;
-  built and led a 15-person cross-functional team.`),
+* ~60% fewer hallucinated/inconsistent outputs, measured on an
+  internal eval set of labelled broker threads.
+* Agentic compliance-research workflows: planning, execution,
+  verification & feedback loops (LangGraph, tool calling).
+* CASA Tier 2 + Google OAuth Restricted Scope: AES-256-GCM,
+  PII masking before every LLM call, prompt-injection defense,
+  GDPR export, Supabase row-level isolation (EU-West, APAC).
+* Built and led a cross-functional team (AI engineering,
+  cybersecurity, analytics); own the roadmap and pricing tiers
+  with the Founder/CEO.`),
 
       "indigo.md": F(`
 # Business Analyst & ML Engineer — IndiGo (InterGlobe Aviation)
   Gurugram · June 2023 - August 2025
 
 ML-driven optimisation and decision intelligence across a 300+
-aircraft fleet at one of the world's largest airlines.
+aircraft fleet. Promoted into the ML engineering role within six
+months.
 
 * Aircraft zero-fuel-weight prediction and on-time-performance
   cost models: ~20% operational cost savings fleet-wide.
-* Production BI and insight frameworks on GCP & Azure that
-  improved decision quality by 40% for leadership.
-* Owned the bridge between data science, business technology,
-  and executive decision-making.`),
+* Production ML & BI insight frameworks on GCP & Azure: ~40%
+  better cross-functional decision quality.
+* Technical discovery with Business Technology & operations:
+  ambiguous problems -> ML requirements -> deployed systems.`),
 
       "ucd-teaching.md": F(`
 # Teaching Assistant — Digital Technologies in Business, UCD
@@ -163,14 +171,35 @@ client churn. Targeted-surveillance architecture, Claude Sonnet 4.6
 signal engine across 15+ behavioural categories, 80-90% lower LLM
 cost per broker. Claude · LangGraph · RAG · Supabase · OAuth 2.0.`),
 
+      "eadip.md": F(`
+# EADIP — Enterprise Autonomous Decision Intelligence Platform
+
+Governed multi-agent platform: plan -> retrieve -> query ->
+verify -> report. An independent Verification Agent re-derives
+every numeric claim; side-effecting actions wait for human
+approval; 274 CI-gated tests across 12 delivery phases.
+FastAPI · Postgres RLS · Qdrant · Neo4j GraphRAG · OpenTelemetry
+
+github.com/advait27/EADIP`, "https://github.com/advait27/EADIP"),
+
+      "veritas.md": F(`
+# Veritas — self-hosted MCP server
+
+Turns Claude into a hypothesis-driven data investigator over
+local CSV/Parquet/Excel in DuckDB. Every numeric claim traces to
+an executed artifact ("receipts or it didn't happen").
+
+github.com/advait27/Veritas`, "https://github.com/advait27/Veritas"),
+
       "open-source.md": F(`
 # Open source (PyPI author)
 
-* hallucimap   — hallucination risk cartography for LLM systems
-* finfeatures  — financial feature engineering toolkit
-* fraudguard   — fraud detection utilities
-* esgprofiler  — ESG profiling & scoring
+* hallucimap     — hallucination-risk scoring & triage for LLM outputs
+* finfeatures    — financial feature engineering toolkit
+* fraudguard     — fraud & anomaly classification pipeline
+* esgprofiler    — ESG profiling & scoring
 * finance-automl — AutoML tailored for financial applications
+* mlopter        — ML pipeline & hyperparameter optimisation
 
 github.com/advait27 — 30+ repos across AI, ML, finance, analytics.`),
 
@@ -185,6 +214,43 @@ github.com/advait27 — 30+ repos across AI, ML, finance, analytics.`),
 * Employee Turnover Analytics — attrition prediction & drivers
 * Market Pulse AI — market sentiment & signal monitoring
 * FinPred — stock analysis & prediction app (Streamlit)`),
+    }),
+
+    research: D({
+      "agent-traces.md": F(`
+# What Agent Traces Cannot Tell You: Evidentiary Adequacy of
+# Runtime Records for Agentic AI Oversight
+  Preprint, 2026 · first author · open benchmark (AdequacyBench)
+
+1,200 agent trajectories · 36,296 steps · 6 determination
+families · 4 record conditions.
+
+Coverage of resolvable determinations
+  action log             [##--------]  16.3%
+  OpenTelemetry spans    [##--------]  16.3%
+  governance layer       [###-------]  28.75%
+  labelled substrate     [##########] 100%
+
+Weak records fail silently; the relation binds, not the typing.
+Run 'open research/agent-traces.md' to read the paper.`,
+        "https://github.com/advait27/AI-Research/blob/main/evidentiaryadequacy.pdf"),
+
+      "forward-deployed-engineering.md": F(`
+# Forward Deployed Engineering: A Systems Engineering Perspective
+  Preprint, 2026 · first author · multivocal literature review
+
+133 academic & practitioner sources, mapped onto ISO/IEC/IEEE
+15288. Three structural properties:
+  1. requirements are discoverable only through operation
+  2. verification evidence is produced in an environment the
+     supplier does not control
+  3. delivered architecture mirrors the delivery organisation
+     across the firm boundary
+
+Run 'open research/forward-deployed-engineering.md' to read it.`,
+        "https://github.com/advait27/AI-Research/blob/main/Forward_Deployed_Engineering_A_Systems_Engineering_Perspective.pdf"),
+
+      "archive.url": F("https://github.com/advait27/AI-Research", "https://github.com/advait27/AI-Research"),
     }),
 
     links: D({

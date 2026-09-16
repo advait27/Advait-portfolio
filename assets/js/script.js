@@ -77,142 +77,9 @@ for (let i = 0; i < selectItems.length; i++) {
 
 
 
-// typed text effect
-const typedText = document.querySelector("[data-typed-words]");
-
-if (typedText) {
-  const words = typedText.dataset.typedWords.split("|").map((word) => word.trim()).filter(Boolean);
-  const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-
-  if (prefersReducedMotion || words.length === 0) {
-    typedText.textContent = words[0] || "";
-  } else {
-    let wordIndex = 0;
-    let charIndex = 0;
-    let isDeleting = false;
-
-    const tick = () => {
-      const currentWord = words[wordIndex];
-      charIndex += isDeleting ? -1 : 1;
-      typedText.textContent = currentWord.substring(0, charIndex);
-
-      if (!isDeleting && charIndex === currentWord.length) {
-        isDeleting = true;
-        setTimeout(tick, 1200);
-        return;
-      }
-
-      if (isDeleting && charIndex === 0) {
-        isDeleting = false;
-        wordIndex = (wordIndex + 1) % words.length;
-      }
-
-      setTimeout(tick, isDeleting ? 50 : 80);
-    };
-
-    tick();
-  }
-}
+// Typed hero text, scroll reveals and metric counters live in motion.js.
 
 
-
-// reveal animations on scroll
-const revealTargets = document.querySelectorAll(
-  ".hero-panel, .about-text, .service-item, .now-card, .cert-item, .stack-group, .testimonials-item, .timeline-item, .skills-item, .project-item, .blog-post-item, .podcast-card, .contact-method, .contact-form"
-);
-
-const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-
-revealTargets.forEach((target) => target.classList.add("reveal"));
-
-if (reduceMotion) {
-  revealTargets.forEach((target) => {
-    target.classList.add("is-visible");
-    const skillFill = target.querySelector(".skill-progress-fill");
-    if (skillFill) {
-      skillFill.classList.add("is-animated");
-    }
-  });
-} else {
-  const revealObserver = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("is-visible");
-
-          const skillFill = entry.target.querySelector(".skill-progress-fill");
-          if (skillFill) {
-            skillFill.classList.add("is-animated");
-          }
-
-          revealObserver.unobserve(entry.target);
-        }
-      });
-    },
-    { threshold: 0.2 }
-  );
-
-  revealTargets.forEach((target) => revealObserver.observe(target));
-
-  // Elements inside pages that start hidden (display:none) never intersect,
-  // so reveal a page's content as soon as it becomes the active page.
-  const revealPage = (page) => {
-    if (!page) return;
-    page.querySelectorAll(".reveal").forEach((el) => {
-      el.classList.add("is-visible");
-      const skillFill = el.querySelector(".skill-progress-fill");
-      if (skillFill) skillFill.classList.add("is-animated");
-    });
-  };
-
-  document.querySelectorAll("[data-nav-link]").forEach((btn) => {
-    btn.addEventListener("click", () => {
-      requestAnimationFrame(() => revealPage(document.querySelector("[data-page].active")));
-    });
-  });
-}
-
-// animated metric counters
-const counters = document.querySelectorAll("[data-count]");
-
-const runCounter = (el) => {
-  const target = parseFloat(el.dataset.count) || 0;
-  const suffix = el.dataset.suffix || "";
-  const duration = 1400;
-  let startTime = null;
-
-  const step = (timestamp) => {
-    if (!startTime) startTime = timestamp;
-    const progress = Math.min((timestamp - startTime) / duration, 1);
-    // easeOutCubic for a snappy settle
-    const eased = 1 - Math.pow(1 - progress, 3);
-    el.textContent = Math.round(target * eased) + suffix;
-    if (progress < 1) requestAnimationFrame(step);
-  };
-
-  requestAnimationFrame(step);
-};
-
-if (counters.length) {
-  if (reduceMotion) {
-    counters.forEach((el) => {
-      el.textContent = (parseFloat(el.dataset.count) || 0) + (el.dataset.suffix || "");
-    });
-  } else {
-    const counterObserver = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            runCounter(entry.target);
-            counterObserver.unobserve(entry.target);
-          }
-        });
-      },
-      { threshold: 0.6 }
-    );
-    counters.forEach((el) => counterObserver.observe(el));
-  }
-}
 
 // "Listen to Podcast" style in-page jumps to a nav page
 const navJumpLinks = document.querySelectorAll("[data-nav-jump]");
@@ -243,6 +110,8 @@ const filterFunc = function (selectedValue) {
     }
 
   }
+
+  document.dispatchEvent(new CustomEvent("filterchange", { detail: { value: selectedValue } }));
 
 }
 
@@ -343,15 +212,24 @@ const pages = document.querySelectorAll("[data-page]");
 for (let i = 0; i < navigationLinks.length; i++) {
   navigationLinks[i].addEventListener("click", function () {
 
+    const previous = document.querySelector("[data-page].active");
+    let next = null;
+
     for (let i = 0; i < pages.length; i++) {
       if (this.innerHTML.toLowerCase() === pages[i].dataset.page) {
         pages[i].classList.add("active");
         navigationLinks[i].classList.add("active");
+        next = pages[i];
         window.scrollTo(0, 0);
       } else {
         pages[i].classList.remove("active");
         navigationLinks[i].classList.remove("active");
       }
+    }
+
+    // let the motion layer (motion.js) animate the incoming page
+    if (next && next !== previous) {
+      document.dispatchEvent(new CustomEvent("pagechange", { detail: { page: next, link: this } }));
     }
 
   });
@@ -385,6 +263,33 @@ navigationLinks.forEach((btn) => {
     if (history.replaceState) {
       history.replaceState(null, "", "#" + name);
     }
+  });
+});
+
+
+
+// research: copy a paper's BibTeX entry
+const citeButtons = document.querySelectorAll("[data-copy-cite]");
+
+citeButtons.forEach((btn) => {
+  const label = btn.textContent;
+
+  btn.addEventListener("click", async () => {
+    const source = document.querySelector(`[data-bibtex="${btn.dataset.copyCite}"]`);
+    if (!source) return;
+
+    try {
+      await navigator.clipboard.writeText(source.textContent);
+      btn.textContent = "Copied";
+    } catch (error) {
+      btn.textContent = "Copy failed";
+    }
+
+    btn.classList.add("is-copied");
+    setTimeout(() => {
+      btn.textContent = label;
+      btn.classList.remove("is-copied");
+    }, 1800);
   });
 });
 
