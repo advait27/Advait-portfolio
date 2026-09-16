@@ -6,9 +6,6 @@ A fast, fully responsive single-page portfolio for **Advait Dharmadhikari** — 
 
 **🌐 Live:** [advaitdharmadhikari.netlify.app](https://advaitdharmadhikari.netlify.app)
 
-![Desktop preview](./website-demo-image/desktop.png)
-
----
 
 ## About
 
