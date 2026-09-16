@@ -1,29 +1,30 @@
 # Advait Dharmadhikari — Personal Portfolio
 
-> **Applied AI Engineer & Technical Advisor** · LLM · RAG · Agentic Systems · Solutions Architecture · Evaluation Frameworks
+> **Forward Deployed AI Engineer** · Agentic & Multi-Agent Systems · RAG & Evals · Enterprise LLM Deployment · Open Research
 
-A fast, fully responsive single-page portfolio for **Advait Dharmadhikari** — an applied-AI engineer who builds production LLM applications and partners with founders and engineering teams to turn them into adopted products. Built with vanilla HTML, CSS, and JavaScript (no framework, no build step) and themed around a dark, glassmorphic AI aesthetic.
+A fast, fully responsive single-page portfolio for **Advait Dharmadhikari**, a Forward Deployed Engineer who turns ambiguous customer problems into production AI systems. Built with vanilla HTML, CSS, and JavaScript (no framework, no build step), themed around a dark AI aesthetic, and animated with a GSAP motion layer.
 
 **🌐 Live:** [advaitdharmadhikari.netlify.app](https://advaitdharmadhikari.netlify.app)
 
 
 ## About
 
-Advait works at the intersection of AI systems, business strategy, and technology consulting — translating complex problems into production-ready intelligence systems that people actually use. He has shipped LLM products on the Claude Developer Platform (Claude Sonnet 4.6), led ML-driven optimisation across a 300+ aircraft fleet at IndiGo, and is completing an MSc in Business Analytics at UCD Michael Smurfit.
+Advait works at the intersection of AI systems, business strategy, and technology consulting — translating complex problems into production-ready intelligence systems that people actually use. He is Founding AI Engineer at Frensei Innovation Labs (ClawbackVault AI), delivered ML-driven optimisation across a 300+ aircraft fleet at IndiGo, studied for an MSc in Business Analytics at UCD Michael Smurfit (2025 to 2026), and publishes open research on production AI systems engineering.
 
-This site is the single source of truth for his work, writing, projects, and podcasts.
+This site is the single source of truth for his work, research, writing, projects, and podcasts.
 
 ## Features
 
-- **Six sections** — About, Resume, Portfolio, Blog, Podcast, and Contact, switched client-side with no page reloads.
-- **Dynamic hero** — typed-text rotator, animated metric counters, and on-scroll reveal animations.
+- **Seven sections**: About, Resume, Research, Portfolio, Blog, Podcast, and Contact, switched client-side with no page reloads.
+- **Motion layer** (GSAP + ScrollTrigger): a choreographed intro, animated page transitions with a sliding nav indicator, kinetic hero type with a decoding word rotator, counters, staggered scroll reveals, a scroll-scrubbed career timeline, magnetic buttons, cursor spotlight cards, a scroll progress bar, and a canvas "signal field" background.
+- **Research page**: both first-author preprints with an animated coverage chart for AdequacyBench, the FDE cross-organizational life cycle drawn stage by stage, a topics marquee, and one-click BibTeX copy.
 - **"Currently building" spotlight** — highlights the flagship project, **ClawbackVault AI**.
 - **Portfolio** — gradient project cards sourced from real GitHub repositories and published Python packages (`esgprofiler`, `finfeatures`, `Finance-AutoML`, and more), with category filtering.
 - **Podcast page** — embedded Spotify players for both shows, *The Business Technologist* and *5 Minute Boosters*, with episode highlights.
 - **Blog** — long-form articles published on Medium.
 - **Contact** — direct contact methods plus a working contact form (Formspree) with a spam honeypot.
 - **Shareable deep links** — every section is addressable via a URL hash (e.g. `#podcast`, `#resume`).
-- **Accessible & responsive** — keyboard-focusable, `prefers-reduced-motion` aware, and tuned from mobile to wide desktop.
+- **Accessible & responsive**: keyboard-focusable, tuned from mobile to wide desktop, and fully static under `prefers-reduced-motion` (no canvas, no reveals, final values shown). If the GSAP CDN is unreachable, a timeout in `<head>` releases the page so content always shows.
 - **Downloadable résumé** — one-click PDF download.
 
 ## Tech stack
@@ -32,7 +33,8 @@ This site is the single source of truth for his work, writing, projects, and pod
 |---|---|
 | Markup | Semantic HTML5 |
 | Styling | Hand-written CSS with custom properties (no framework) |
-| Behaviour | Vanilla JavaScript (ES2020) — no dependencies, no bundler |
+| Behaviour | Vanilla JavaScript (ES2020), no bundler |
+| Motion | [GSAP 3](https://gsap.com) + ScrollTrigger (jsDelivr, pinned with SRI) |
 | Icons | [Ionicons](https://ionic.io/ionicons) |
 | Fonts | Space Grotesk + JetBrains Mono (Google Fonts) |
 | Forms | [Formspree](https://formspree.io) |
@@ -45,9 +47,11 @@ This site is the single source of truth for his work, writing, projects, and pod
 ├── index.html                    # All page sections live here
 ├── assets/
 │   ├── css/style.css             # Theme, components, and responsive rules
-│   ├── js/script.js              # Navigation, hash routing, animations, form, filters
+│   ├── css/motion.css            # Motion states and the Research page
+│   ├── js/script.js              # Navigation, hash routing, form, filters, BibTeX copy
+│   ├── js/motion.js              # GSAP motion layer (intro, transitions, reveals, figures)
 │   ├── images/                   # Avatar, project & blog visuals, icons
-│   └── Advait_Dharmadhikari.pdf  # Downloadable résumé
+│   └── Advait_Dharmadhikari.pdf  # Downloadable CV
 ├── website-demo-image/           # Preview screenshots
 └── README.md
 ```
@@ -107,7 +111,8 @@ Without a key, the rest of the site (including the 3D pipeline) works fully; the
 
 - **Content** lives entirely in `index.html`, grouped by `<article data-page="...">` sections.
 - **Theme colours** are CSS custom properties at the top of `assets/css/style.css` (`--orange-yellow-crayola`, `--accent-lime`, gradients, etc.).
-- **Navigation is automatic** — add a nav `<button data-nav-link>Name</button>` plus a matching `<article data-page="name">` (in the same order) and the router wires it up.
+- **Navigation is automatic**: add a nav `<button data-nav-link>Name</button>` plus a matching `<article data-page="name">` (in the same order) and the router wires it up. The router dispatches a `pagechange` event that `motion.js` uses to animate the incoming page.
+- **Motion targets** live in the `REVEAL` selector list at the top of the reveals section in `assets/js/motion.js`.
 - ⚠️ The global rule `article { display: none }` hides any `<article>` that isn't the active page. Don't use `<article>` for sub-components without overriding `display`.
 
 ## Connect

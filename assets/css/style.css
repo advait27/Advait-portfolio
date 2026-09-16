@@ -301,19 +301,6 @@ article.active {
   border-radius: 3px;
 }
 
-.reveal {
-  opacity: 0;
-  transform: translateY(22px);
-  filter: blur(2px);
-  transition: opacity 0.8s ease, transform 0.8s ease, filter 0.8s ease;
-}
-
-.reveal.is-visible {
-  opacity: 1;
-  transform: translateY(0);
-  filter: blur(0);
-}
-
 .has-scrollbar::-webkit-scrollbar {
   width: 5px; /* for vertical scrollbar */
   height: 5px; /* for horizontal scrollbar */
@@ -1082,13 +1069,10 @@ main {
 
 .skill-progress-fill {
   background: var(--text-gradient-yellow);
-  width: 0;
+  width: var(--skill-width);
   height: 100%;
   border-radius: inherit;
-  transition: width 1.2s ease;
 }
-
-.skill-progress-fill.is-animated { width: var(--skill-width); }
 
 
 
@@ -2189,6 +2173,7 @@ button:focus-visible,
 }
 
 .section-intro a {
+  display: inline;
   color: var(--orange-yellow-crayola);
   border-bottom: 1px solid rgba(82, 246, 255, 0.4);
 }
@@ -2415,7 +2400,7 @@ button:focus-visible,
 
 .project-item.featured { grid-column: 1 / -1; }
 
-.project-card {
+.project-item > .project-card {
   display: flex;
   flex-direction: column;
   height: 100%;
