@@ -220,12 +220,13 @@ github.com/advait27 — 30+ repos across AI, ML, finance, analytics.`),
       "agent-traces.md": F(`
 # What Agent Traces Cannot Tell You: Evidentiary Adequacy of
 # Runtime Records for Agentic AI Oversight
-  Preprint, 2026 · first author · open benchmark (AdequacyBench)
+  Preprint, Zenodo, 2026 · first author
+  Open benchmark (AdequacyBench) · DOI 10.5281/zenodo.22814181
 
 1,200 agent trajectories · 36,296 steps · 6 determination
 families · 4 record conditions.
 
-Coverage of resolvable determinations
+Determinations resolved correctly
   action log             [##--------]  16.3%
   OpenTelemetry spans    [##--------]  16.3%
   governance layer       [###-------]  28.75%
@@ -233,11 +234,12 @@ Coverage of resolvable determinations
 
 Weak records fail silently; the relation binds, not the typing.
 Run 'open research/agent-traces.md' to read the paper.`,
-        "https://github.com/advait27/AI-Research/blob/main/evidentiaryadequacy.pdf"),
+        "https://doi.org/10.5281/zenodo.22814181"),
 
       "forward-deployed-engineering.md": F(`
 # Forward Deployed Engineering: A Systems Engineering Perspective
-  Preprint, 2026 · first author · multivocal literature review
+  Preprint, Zenodo, 2026 · first author
+  Multivocal literature review · DOI 10.5281/zenodo.22813634
 
 133 academic & practitioner sources, mapped onto ISO/IEC/IEEE
 15288. Three structural properties:
@@ -248,7 +250,7 @@ Run 'open research/agent-traces.md' to read the paper.`,
      across the firm boundary
 
 Run 'open research/forward-deployed-engineering.md' to read it.`,
-        "https://github.com/advait27/AI-Research/blob/main/Forward_Deployed_Engineering_A_Systems_Engineering_Perspective.pdf"),
+        "https://doi.org/10.5281/zenodo.22813634"),
 
       "archive.url": F("https://github.com/advait27/AI-Research", "https://github.com/advait27/AI-Research"),
     }),
