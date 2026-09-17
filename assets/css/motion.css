@@ -277,6 +277,16 @@
 
 .paper-meta li { padding-right: 12px; }
 
+.paper-meta a {
+  color: inherit;
+  text-decoration: underline;
+  text-decoration-color: var(--surface-border);
+  text-underline-offset: 3px;
+}
+
+.paper-meta a:hover,
+.paper-meta a:focus-visible { text-decoration-color: currentColor; }
+
 .paper-meta li + li {
   padding-left: 12px;
   border-left: 1px solid var(--surface-border);
