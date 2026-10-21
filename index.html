@@ -6,12 +6,15 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Advait Dharmadhikari | Forward Deployed AI Engineer · LLM Systems & Agentic AI</title>
-  <meta name="description" content="Advait Dharmadhikari is a Forward Deployed AI Engineer who turns ambiguous customer problems into production AI systems: RAG, agentic workflows and multi-agent orchestration. Founding AI Engineer at Frensei (ClawbackVault AI), ex-IndiGo, and first author of open research on production AI systems.">
+  <meta name="description" content="Advait Dharmadhikari is a Forward Deployed AI Engineer who turns ambiguous customer problems into production AI systems: RAG, agentic workflows and multi-agent orchestration. Previously Founding AI Engineer at Frensei (November 2025–September 2026), ex-IndiGo, and first author of open research on production AI systems.">
   <meta name="keywords" content="Forward Deployed AI Engineer, Forward Deployed Engineer, LLM Systems, Agentic AI, Multi-Agent Systems, RAG, LLM Evaluation, MCP, Claude, AI Observability, AI Research, Advait Dharmadhikari">
   <meta property="og:title" content="Advait Dharmadhikari | Forward Deployed AI Engineer · LLM Systems & Agentic AI">
   <meta property="og:description" content="Forward Deployed AI Engineer building production LLM systems and agentic workflows, with open research on how AI systems are deployed and overseen.">
   <meta property="og:type" content="website">
-  <meta property="og:image" content="./assets/images/personal.jpeg">
+  <meta property="og:image" content="https://advaitdharmadhikari.netlify.app/assets/images/github-profile.jpg">
+  <meta property="og:url" content="https://advaitdharmadhikari.netlify.app/">
+  <meta name="theme-color" content="#080c0d">
+  <link rel="canonical" href="https://advaitdharmadhikari.netlify.app/">
   <meta property="twitter:card" content="summary_large_image">
 
   <!--
@@ -24,22 +27,13 @@
   -->
   <link rel="stylesheet" href="./assets/css/style.css">
   <link rel="stylesheet" href="./assets/css/motion.css">
+  <link rel="stylesheet" href="./assets/css/studio.css">
 
   <!--
     - motion bootstrap: hide the first frame until the GSAP motion layer takes over,
     - with a timeout so content always shows if the CDN is slow or blocked
   -->
-  <script>
-    (function () {
-      var root = document.documentElement;
-      if (window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-      root.classList.add("motion-pending");
-      window.__motionFallback = setTimeout(function () {
-        root.classList.remove("motion-pending");
-        window.__motionTimedOut = true;
-      }, 2500);
-    })();
-  </script>
+
 
   <!--
     - google font link
@@ -50,6 +44,7 @@
 </head>
 
 <body>
+  <a class="skip-link" href="#main-content">Skip to content</a>
 
   <!--
     - #MAIN
@@ -61,132 +56,15 @@
       - #SIDEBAR
     -->
 
-    <aside class="sidebar" data-sidebar>
-
+    <aside class="sidebar" data-sidebar aria-label="Profile and contact">
+      <a class="brand" href="#about" aria-label="Advait Dharmadhikari home"><span class="brand-mark">AD<span>.</span></span></a>
       <div class="sidebar-info">
-
-        <figure class="avatar-box">
-          <img src="./assets/images/personal.jpeg" alt="Advait Dharmadhikari" width="100">
-        </figure>
-
-        <div class="info-content">
-          <h3 class="name" title="Advait Dharmadhikari">Advait Dharmadhikari</h3>
-
-          <p class="title">Forward Deployed AI Engineer</p>
-        </div>
-
-        <button class="info_more-btn" data-sidebar-btn>
-          <span>Show Contacts</span>
-
-          <ion-icon name="chevron-down"></ion-icon>
-        </button>
-
+        <figure class="avatar-box"><img src="./assets/images/github-profile.jpg" alt="Advait Dharmadhikari" width="48" height="48"></figure>
+        <div class="info-content"><p class="name">Advait Dharmadhikari</p><p class="title">Forward Deployed Engineer / Applied AI</p></div>
+        <button class="info_more-btn" data-sidebar-btn aria-label="Toggle contact details" aria-expanded="false"><ion-icon name="chevron-down"></ion-icon></button>
       </div>
-
-      <div class="sidebar-info_more">
-
-        <div class="separator"></div>
-
-        <ul class="contacts-list">
-
-          <li class="contact-item">
-
-            <div class="icon-box">
-              <ion-icon name="mail-outline"></ion-icon>
-            </div>
-
-            <div class="contact-info">
-              <p class="contact-title">Email</p>
-
-              <a href="mailto:advaitdharmadhikari27@gmail.com" class="contact-link">advaitdharmadhikari27@gmail.com</a>
-            </div>
-
-          </li>
-
-          <li class="contact-item">
-
-            <div class="icon-box">
-              <ion-icon name="phone-portrait-outline"></ion-icon>
-            </div>
-
-            <div class="contact-info">
-              <p class="contact-title">Phone</p>
-
-              <a href="tel:+353892040580" class="contact-link">+353-89-204-0580</a>
-            </div>
-
-          </li>
-
-          <li class="contact-item">
-
-            <div class="icon-box">
-              <ion-icon name="calendar-outline"></ion-icon>
-            </div>
-
-            <div class="contact-info">
-              <p class="contact-title">Birthday</p>
-
-              <time datetime="2002-10-27">October 27, 2002</time>
-            </div>
-
-          </li>
-
-          <li class="contact-item">
-
-            <div class="icon-box">
-              <ion-icon name="location-outline"></ion-icon>
-            </div>
-
-            <div class="contact-info">
-              <p class="contact-title">Location</p>
-
-              <address>Dublin, Ireland</address>
-            </div>
-
-          </li>
-
-        </ul>
-
-        <div class="separator"></div>
-
-        <ul class="social-list">
-
-          <li class="social-item">
-            <a href="https://github.com/advait27" class="social-link" aria-label="GitHub">
-              <ion-icon name="logo-github"></ion-icon>
-            </a>
-          </li>
-
-          <li class="social-item">
-            <a href="https://www.linkedin.com/in/advaitdharmadhikari" class="social-link" aria-label="LinkedIn">
-              <ion-icon name="logo-linkedin"></ion-icon>
-            </a>
-          </li>
-
-          <li class="social-item">
-            <a href="https://www.instagram.com/mr.maverick27?igsh=MTd0ZGRieDIzd2VvMQ==" class="social-link" aria-label="Instagram">
-              <ion-icon name="logo-instagram"></ion-icon>
-            </a>
-          </li>
-
-          <li class="social-item">
-            <a href="https://medium.com/@advaitdharmadhikari7" class="social-link" aria-label="Medium">
-              <ion-icon name="logo-medium"></ion-icon>
-            </a>
-          </li>
-
-          <li class="social-item">
-            <a href="https://open.spotify.com/show/2nMlpUNSqh9ZiI1vsg5B1g" class="social-link" aria-label="Spotify Podcast">
-              <svg class="social-svg" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false">
-                <path fill="currentColor" d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.5 17.32a.75.75 0 0 1-1.03.25c-2.82-1.72-6.37-2.11-10.55-1.16a.75.75 0 1 1-.33-1.46c4.57-1.04 8.5-.59 11.66 1.34.35.22.46.68.25 1.03zm1.47-3.27a.94.94 0 0 1-1.29.31c-3.23-1.98-8.15-2.56-11.97-1.4a.94.94 0 1 1-.54-1.8c4.37-1.32 9.79-.68 13.49 1.6.44.27.58.85.31 1.29zm.13-3.4C15.8 8.27 9.5 8.05 5.86 9.16a1.12 1.12 0 1 1-.65-2.15c4.18-1.27 11.13-1.02 15.5 1.58a1.13 1.13 0 0 1-1.15 1.93l.04.06z"/>
-              </svg>
-            </a>
-          </li>
-
-        </ul>
-
-      </div>
-
+      <p class="header-location"><span class="status-dot"></span>Dublin, Ireland <span class="local-clock" data-dublin-clock></span></p>
+      <div class="sidebar-info_more"><a href="https://github.com/advait27" aria-label="GitHub profile">GitHub ↗</a><a href="https://www.linkedin.com/in/advaitdharmadhikari">LinkedIn ↗</a><a class="header-contact" href="mailto:advaitdharmadhikari27@gmail.com">Let’s talk <span>↗</span></a></div>
     </aside>
 
 
@@ -197,13 +75,13 @@
       - #main-content
     -->
 
-    <div class="main-content">
+    <div class="main-content" id="main-content" tabindex="-1">
 
       <!--
         - #NAVBAR
       -->
 
-      <nav class="navbar">
+      <nav class="navbar" aria-label="Main navigation">
 
         <ul class="navbar-list">
 
@@ -253,85 +131,51 @@
           <h2 class="h2 article-title">About me</h2>
         </header>
 
-        <section class="hero-panel">
-          <p class="hero-kicker">Forward deployed engineering &middot; agentic systems &middot; RAG &amp; evals</p>
-
-          <h3 class="hero-title">
-            I build &amp; deploy production AI systems for
-            <span class="typed-text" data-typed-words="broker-dealers|compliance teams|airline operations|founders|production teams">broker-dealers</span>.
-          </h3>
-
-          <p class="hero-subtitle">
-            I turn ambiguous customer problems into production AI systems: RAG architectures, agentic workflows
-            and multi-agent orchestration, shipped under real enterprise constraints.
-          </p>
-
-          <div class="hero-cta">
-            <a class="btn primary" href="https://www.linkedin.com/in/advaitdharmadhikari">View LinkedIn</a>
-            <a class="btn ghost" href="./assets/Advait_Dharmadhikari.pdf" download="Advait_Dharmadhikari_CV.pdf" target="_blank" rel="noopener">Download CV</a>
-            <a class="btn ghost" data-nav-jump="research" href="#research">Read Research</a>
+        <section class="hero-panel" aria-labelledby="hero-heading">
+          <div class="hero-copy">
+            <p class="hero-kicker"><span class="status-dot"></span> Applied AI / Forward deployed engineering</p>
+            <h1 class="hero-title" id="hero-heading">Intelligence.<br>Engineered for<br><em>the real world.</em></h1>
+            <p class="hero-subtitle">I’m Advait. I turn complex customer problems into production AI — connecting agents, enterprise systems and the evidence that makes them trustworthy.</p>
+            <div class="hero-cta"><a class="btn primary" href="#portfolio" data-nav-jump="portfolio">Explore my work <span aria-hidden="true">↗</span></a><a class="btn ghost" href="#contact" data-nav-jump="contact">Let’s build something <span aria-hidden="true">↗</span></a></div>
+            <p class="hero-availability"><span class="status-dot"></span> Open to AI engineering &amp; consulting opportunities</p>
           </div>
-
-          <div class="metric-grid">
-            <div class="metric-card">
-              <p class="metric-value"><span class="metric-num" data-count="300" data-suffix="+">300+</span></p>
-              <p class="metric-label">Aircraft fleet supported with ML-driven ops optimisation at IndiGo</p>
+          <div class="hero-visual">
+            <div class="visual-topline"><span>INTELLIGENCE / IN CONTEXT</span><button class="motion-toggle" type="button" data-motion-toggle aria-pressed="false">Pause motion</button></div>
+            <div class="core-scene" data-core-scene aria-label="Interactive 3D intelligence core; decorative illustration">
+              <img class="scene-fallback" src="./assets/images/intelligence-core.svg" alt="Orbital intelligence core connected to context, tools, evaluation and human oversight" width="560" height="500">
             </div>
-
-            <div class="metric-card">
-              <p class="metric-value"><span class="metric-num" data-count="85" data-suffix="%">85%</span></p>
-              <p class="metric-label">LLM token spend cut per broker (80 to 90%) with targeted surveillance</p>
-            </div>
-
-            <div class="metric-card">
-              <p class="metric-value"><span class="metric-num" data-count="60" data-suffix="%">60%</span></p>
-              <p class="metric-label">Fewer hallucinated outputs, measured on a labelled eval set</p>
-            </div>
-
-            <div class="metric-card">
-              <p class="metric-value"><span class="metric-num" data-count="1200" data-suffix="">1,200</span></p>
-              <p class="metric-label">Agent trajectories in my open AdequacyBench benchmark</p>
-            </div>
-          </div>
-
-          <div class="tag-list">
-            <span class="tag">Forward deployed engineering</span>
-            <span class="tag">Agentic &amp; multi-agent systems</span>
-            <span class="tag">RAG &amp; semantic search</span>
-            <span class="tag">LLM evaluation</span>
-            <span class="tag">MCP</span>
-            <span class="tag">AI security &amp; compliance</span>
-            <span class="tag">AI observability</span>
+            <span class="orbit-label orbit-label-a">CONTEXT</span><span class="orbit-label orbit-label-b">EVIDENCE</span><span class="orbit-label orbit-label-c">HUMAN OVERSIGHT</span>
+            <div class="hero-id"><img src="./assets/images/github-profile.jpg" width="68" height="68" alt="Portrait of Advait Dharmadhikari"><div><strong>Advait Dharmadhikari</strong><span>Engineer. Researcher. Business translator.</span></div><span class="hero-id-arrow" aria-hidden="true">↗</span></div>
           </div>
         </section>
 
-        <section class="about-text">
-          <p>
-            I&rsquo;m a Forward Deployed Engineer. I turn ambiguous customer problems into production AI systems:
-            RAG architectures, agentic workflows and multi-agent orchestration, shipped under real enterprise
-            constraints. I came up through ML delivery inside a 300+ aircraft airline and through enterprise
-            consulting, so before models, architecture or tooling, my first question is always,
-            <em>&ldquo;what decision are we improving?&rdquo;</em>
-          </p>
-
-          <p>
-            As Founding AI Engineer at Frensei Innovation Labs (ClawbackVault AI), I own end-to-end technical
-            delivery of an AI-first compliance intelligence platform for financial-services brokers, from discovery
-            through production deployment. That includes LLM pipelines that cut token spend 80 to 90% per broker, a
-            Claude-based signal-detection engine with full evidence-trail audit logging for regulated decisions, and
-            a security posture that clears CASA Tier 2 and Google OAuth Restricted Scope. Before that, at IndiGo, one
-            of the world&rsquo;s largest airlines, I delivered ML-driven optimisation across a 300+ aircraft fleet
-            with ~20% operational cost savings.
-          </p>
-
-          <p>
-            My MSc in Business Analytics at UCD Michael Smurfit (2025 to 2026) ran alongside full-time engineering,
-            on top of formal AI &amp; ML training from IIT Kanpur. I&rsquo;m an open-source author of MCP servers,
-            evaluation tooling and PyPI packages, first author of two research preprints on production AI systems,
-            and I write and host two podcasts. I&rsquo;m open to Forward Deployed Engineer, Founding AI Engineer,
-            Applied AI Engineer and AI consulting roles in Ireland, Europe and globally.
-          </p>
+        <section class="proof-strip" aria-label="Selected experience and research outcomes">
+          <div><strong>80–90<span>%</span></strong><p>Lower LLM inference costs<span>Frensei / previous role</span></p></div>
+          <div><strong>300<span>+</span></strong><p>Aircraft fleet supported<span>IndiGo / ML &amp; decision intelligence</span></p></div>
+          <div><strong>2</strong><p>First-author preprints<span>Enterprise AI &amp; agent oversight</span></p></div>
+          <div><strong>6</strong><p>Published Python packages<span>Open tools, built to be used</span></p></div>
         </section>
+
+        <section class="selected-builds" aria-labelledby="selected-title">
+          <div class="section-heading"><div><p class="section-index">01 / SELECTED SYSTEMS</p><h2 id="selected-title">Useful intelligence.<br>Verifiable outcomes.</h2></div><a href="#portfolio" data-nav-jump="portfolio">All projects <span aria-hidden="true">↗</span></a></div>
+          <div class="build-grid">
+            <a class="build-card build-eadip" href="https://github.com/advait27/EADIP"><div class="build-top"><span>01 / MULTI-AGENT INTELLIGENCE</span><span aria-hidden="true">↗</span></div><div class="build-art" aria-hidden="true"><span>PLAN</span><i></i><span>RETRIEVE</span><i></i><span class="verified">VERIFY</span><div class="art-crosshair">+</div></div><h3>EADIP<span>Decisions, with receipts.</span></h3><p>A governed multi-agent platform that investigates business questions and independently verifies numeric claims before they enter a report.</p><div class="build-footer"><span>Python / FastAPI / GraphRAG</span><span>Explore system ↗</span></div></a>
+            <a class="build-card build-veritas" href="https://github.com/advait27/Veritas"><div class="build-top"><span>02 / EVIDENCE-BACKED INVESTIGATION</span><span aria-hidden="true">↗</span></div><div class="build-art veritas-art" aria-hidden="true"><div class="hypothesis-node">H<span>?</span></div><i></i><div class="evidence-stack"><span>HYPOTHESIS</span><span>EXECUTED QUERY</span><span class="verified">TRACEABLE CLAIM</span></div></div><h3>Veritas<span>Ask. Investigate. Prove.</span></h3><p>A self-hosted MCP server that tests hypotheses against local data and traces every numeric claim to an executed artifact.</p><div class="build-footer"><span>MCP / DuckDB / Python</span><span>Explore system ↗</span></div></a>
+          </div>
+        </section>
+
+        <section class="systems-lab" id="systems-lab" aria-labelledby="lab-heading">
+          <div class="section-heading"><div><p class="section-index">02 / INTERACTIVE SYSTEMS LAB</p><h2 id="lab-heading">Go beyond the interface.</h2></div><p>Explore the architecture.<br>Follow the reasoning.</p></div>
+          <div class="lab-projects" role="group" aria-label="Select an architecture walkthrough"><button type="button" data-lab-project="eadip" aria-pressed="true">01 <span>EADIP</span></button><button type="button" data-lab-project="veritas" aria-pressed="false">02 <span>Veritas</span></button><button type="button" data-lab-project="compliance" aria-pressed="false">03 <span>ClawbackVault / past work</span></button></div>
+          <div class="lab-workspace">
+            <div class="lab-scene-wrap"><div class="lab-scene-top"><span data-lab-label>EADIP / GOVERNED DECISION INTELLIGENCE</span><span class="scene-mode" data-scene-mode>Architecture illustration</span></div><div class="lab-scene" data-lab-scene role="img" aria-label="Five connected stages of the selected project's architecture"><div class="lab-static" data-lab-static aria-hidden="true"><span>01</span><i></i><span>02</span><i></i><span>03</span><i></i><span>04</span><i></i><span>05</span></div></div><div class="scene-toolbar"><span>Drag to orbit / select a node</span><div><button type="button" data-reset-view>Reset view ↺</button><button type="button" data-motion-toggle aria-pressed="false">Pause motion</button></div></div></div>
+            <div class="lab-story" aria-live="polite" aria-atomic="true"><span class="story-step" data-story-number>01 / 05</span><h3 data-story-title>Plan the investigation</h3><p data-story-description>Translate a business question into an explicit investigation plan, with bounded actions and an auditable path through the system.</p><div class="story-principle"><span>ENGINEERING PRINCIPLE</span><p data-story-principle>Start with the decision, then choose the tools.</p></div><a data-story-link href="https://github.com/advait27/EADIP">View project source ↗</a><div class="story-controls"><button type="button" data-story-prev aria-label="Previous architecture stage">←</button><span data-story-progress>01 — 05</span><button type="button" data-story-next aria-label="Next architecture stage">→</button></div></div>
+          </div>
+          <div class="lab-steps" role="group" aria-label="Select an architecture stage"><button type="button" data-lab-stage="0" aria-pressed="true"><span>01</span>Plan</button><button type="button" data-lab-stage="1" aria-pressed="false"><span>02</span>Retrieve</button><button type="button" data-lab-stage="2" aria-pressed="false"><span>03</span>Query</button><button type="button" data-lab-stage="3" aria-pressed="false"><span>04</span>Verify</button><button type="button" data-lab-stage="4" aria-pressed="false"><span>05</span>Report</button></div>
+          <p class="lab-note">An interactive architecture presentation of my work. Illustrations are explanatory; they do not show live customer data or production telemetry.</p>
+        </section>
+
+        <section class="about-text" aria-labelledby="about-heading"><p class="section-index">03 / THE ENGINEER BEHIND THE SYSTEMS</p><h2 id="about-heading">The code matters.<br>So does the customer.</h2><div class="about-editorial"><p>I work where customer problems meet software engineering and production AI. My path started in business analytics and airline operations, which still shapes my first question: <em>what decision are we improving?</em></p><p>Previously, as Founding AI Engineer &amp; Product Lead at Frensei Innovation Labs <strong>(November 2025–September 2026)</strong>, I built privacy-first compliance intelligence, enterprise integrations and production evaluation workflows. Before that, I delivered ML and BI systems at IndiGo for operations across a 300+ aircraft fleet.</p><p>I completed my MSc in Business Analytics at UCD Smurfit in September 2026, with formal AI &amp; ML training from IIT Kanpur. Today, my independent work includes EADIP, Veritas, open-source Python packages and research into the reliability and oversight of agentic AI.</p><div class="about-links"><a class="text-link" href="#resume" data-nav-jump="resume">Explore my experience ↗</a><a class="text-link" href="./assets/Advait_Dharmadhikari.pdf" download="Advait_Dharmadhikari_CV.pdf">Download current CV ↓</a></div></div></section>
 
 
         <!--
@@ -347,8 +191,7 @@
             <li class="service-item">
 
               <div class="service-icon-box">
-                <img src="./assets/images/ml.svg
-                " alt="ML icon" width="70">
+                <img src="./assets/images/ml.svg" alt="ML icon" width="70">
               </div>
 
               <div class="service-content-box">
@@ -390,7 +233,7 @@
 
                 <p class="service-item-text">
                   AES-256-GCM encryption, PII masking ahead of every LLM call, prompt-injection protection,
-                  OAuth 2.0, and GDPR-ready data handling. Privacy engineered in, not bolted on.
+                  OAuth 2.0, and GDPR-ready data handling. Security controls built into inference and integration.
                 </p>
               </div>
 
@@ -422,99 +265,11 @@
           - currently building
         -->
 
-        <section class="now-building">
-
-          <h3 class="h3 service-title">Currently building</h3>
-
-          <div class="now-card">
-            <div class="now-card-head">
-              <span class="now-pulse" aria-hidden="true"></span>
-              <span class="now-status">Founding AI Engineer &amp; Product Lead &middot; Live</span>
-            </div>
-
-            <h4 class="now-title">ClawbackVault&nbsp;AI</h4>
-            <p class="now-tagline">Compliance intelligence that protects broker commissions from silent client churn.</p>
-
-            <p class="now-desc">
-              I own the end-to-end build at Frensei Innovation Labs: a targeted-surveillance architecture that
-              replaced full-inbox scanning and cut LLM token spend per broker by 80 to 90%, a three-stage processing
-              pipeline (header scan &rarr; PII-masked body fetch &rarr; signal classification) where email bodies never
-              touch the database, and a four-tier churn-signal engine on Claude Sonnet 4.6 across 15+ behavioural categories.
-            </p>
-
-            <ul class="now-points">
-              <li>Eval harnesses, structured-output checks and calibrated confidence thresholds in the production pipeline</li>
-              <li>Agentic compliance-research workflows with planning, execution, verification and feedback loops</li>
-              <li>AES-256-GCM encryption, PII masking before every LLM call, prompt-injection protection</li>
-              <li>Row-level multi-tenant isolation across EU-West &amp; Asia-Pacific; Gmail API &amp; Microsoft Graph over OAuth 2.0</li>
-            </ul>
-
-            <div class="now-tags">
-              <span class="chip">Claude Sonnet 4.6</span>
-              <span class="chip">LangGraph</span>
-              <span class="chip">Evals</span>
-              <span class="chip">Supabase</span>
-              <span class="chip">OAuth 2.0</span>
-              <span class="chip">CASA Tier 2</span>
-            </div>
-          </div>
-
-        </section>
-
-
-        <!--
-          - ClawbackVault 3D pipeline
-        -->
-
-        <section class="now-pipeline" id="cbv-pipeline">
-
-          <h3 class="h3 service-title">How ClawbackVault processes a signal</h3>
-
-          <p class="pipeline-lead">
-            The live pipeline. Drag to explore. Email bodies are PII-masked before any LLM call and never
-            touch the database; targeting only the relevant mail is what drives the cost reduction.
-          </p>
-
-          <div class="pipeline-stage" data-pipeline>
-
-            <span class="pipeline-hint" aria-hidden="true">Drag to orbit</span>
-
-            <div class="pipeline-hud">
-              <span class="pipeline-hud-value"><span data-hud-count="85" data-hud-suffix="%">0%</span></span>
-              <span class="pipeline-hud-label">LLM cost reduction per broker (80 to 90%)</span>
-            </div>
-
-            <!-- Static fallback (no-JS, no-WebGL, or prefers-reduced-motion) -->
-            <div class="pipeline-fallback">
-              <svg viewBox="0 0 560 150" role="img"
-                aria-label="ClawbackVault pipeline: Inbox to Header Scan to PII-Masked Body Fetch to Signal Classification with Claude Sonnet to 4-Tier Churn Engine.">
-                <line class="pf-link" x1="70" y1="60" x2="118" y2="60" />
-                <line class="pf-link" x1="190" y1="60" x2="238" y2="60" />
-                <line class="pf-link" x1="310" y1="60" x2="358" y2="60" />
-                <line class="pf-link" x1="430" y1="60" x2="478" y2="60" />
-                <g class="pf-node"><rect x="10" y="42" width="60" height="36" rx="8" /><text x="40" y="64" text-anchor="middle">Inbox</text></g>
-                <g class="pf-node"><rect x="118" y="42" width="72" height="36" rx="8" /><text x="154" y="60" text-anchor="middle">Header</text><text x="154" y="71" text-anchor="middle">Scan</text></g>
-                <g class="pf-node pf-pii"><rect x="238" y="42" width="72" height="36" rx="8" /><text x="274" y="60" text-anchor="middle">PII-Mask</text><text x="274" y="71" text-anchor="middle">Fetch</text></g>
-                <g class="pf-node"><rect x="358" y="42" width="72" height="36" rx="8" /><text x="394" y="60" text-anchor="middle">Signal</text><text x="394" y="71" text-anchor="middle">· Claude</text></g>
-                <g class="pf-node pf-final"><rect x="478" y="42" width="72" height="36" rx="8" /><text x="514" y="60" text-anchor="middle">4-Tier</text><text x="514" y="71" text-anchor="middle">Churn</text></g>
-                <text class="pf-mask" x="274" y="110" text-anchor="middle">jane@acme.co → ●●●●</text>
-              </svg>
-            </div>
-
-          </div>
-
-        </section>
-
-
-        <!--
-          - certifications & recognition
-        -->
-
         <section class="certs">
 
-          <h3 class="h3 service-title">Certifications &amp; recognition</h3>
+          <h3 class="h3 service-title">Recognition &amp; continued learning</h3>
 
-          <ul class="cert-list">
+          <ul class="cert-list"><li class="cert-item"><div class="cert-icon"><ion-icon name="code-working-outline"></ion-icon></div><div><h4 class="cert-title">Introduction to Model Context Protocol</h4><p class="cert-org">Technical learning</p></div></li>
 
             <li class="cert-item">
               <div class="cert-icon"><ion-icon name="earth-outline"></ion-icon></div>
@@ -884,7 +639,7 @@
               <h4 class="h4 timeline-item-title">University College Dublin - Michael Smurfit Graduate Business School, Dublin</h4>
               <h5 class="h5 timeline-item-title">Master of Science - Business Analytics</h5>
 
-              <span>September 2025 - August 2026</span>
+              <span>September 2025 - September 2026</span>
 
               <p class="timeline-text">
                 Focus on business optimization, simulation, predictive analytics, machine learning, and technology consulting.
@@ -899,7 +654,7 @@
               <h4 class="h4 timeline-item-title">Indian Institute of Technology, Kanpur</h4>
               <h5 class="h5 timeline-item-title">Post Graduate Professional Certification Program - Artificial Intelligence & Machine Learning</h5>
 
-              <span>October 2023 - September 2024</span>
+              <span>October 2023 - July 2024</span>
 
               <p class="timeline-text">
                 Advanced training in AI and ML with emphasis on deep learning and practical applications across multiple use cases.
@@ -968,11 +723,11 @@
               <h4 class="h4 timeline-item-title">Founding AI Engineer &amp; Product Lead</h4>
               <h5 class="h5 timeline-item-title">Frensei Innovation Labs (ClawbackVault AI), Dublin</h5>
 
-              <span>December 2025 - Present</span>
+              <span>November 2025 - September 2026 · Previous role</span>
 
               <p class="timeline-text">
-                AI-first compliance intelligence platform for financial-services broker-dealers. I own the full-stack
-                AI architecture, enterprise deployment and product strategy from 0 to scale.
+                AI-first compliance intelligence platform for financial-services broker-dealers. Owned full-stack
+                AI architecture, enterprise deployment and product strategy, partnering with leadership and customers.
               </p>
 
               <ul class="timeline-points">
@@ -985,11 +740,11 @@
                   confidence thresholds into the production pipeline.</li>
                 <li>Automated compliance-research workflows with agentic systems built around planning, execution,
                   verification and feedback loops, orchestrated with LangGraph and tool calling.</li>
-                <li>Hardened the platform to CASA Tier 2 and Google OAuth Restricted Scope: AES-256-GCM at rest, PII
+                <li>Helped the platform satisfy CASA Tier 2 and Google OAuth Restricted Scope requirements: AES-256-GCM at rest, PII
                   masking before every LLM call, prompt-injection protection, GDPR export and Supabase row-level
                   tenant isolation across EU-West and Asia-Pacific.</li>
                 <li>Built and led a cross-functional team spanning AI engineering, cybersecurity and analytics, and
-                  own the four-phase technical roadmap and pricing-tier architecture with the Founder/CEO.</li>
+                  owned the four-phase technical roadmap and pricing-tier architecture with the Founder/CEO.</li>
               </ul>
 
             </li>
@@ -1028,7 +783,7 @@
               <h4 class="h4 timeline-item-title">Business Analyst &amp; ML Engineer</h4>
               <h5 class="h5 timeline-item-title">IndiGo (InterGlobe Aviation Ltd), Gurugram</h5>
 
-              <span>June 2023 - August 2025</span>
+              <span>January 2024 - August 2025</span>
 
               <p class="timeline-text">
                 ML-driven optimisation and decision intelligence across a 300+ aircraft fleet at one of the
@@ -1039,8 +794,6 @@
               <ul class="timeline-points">
                 <li>Delivered ~20% operational cost savings fleet-wide by designing and deploying aircraft
                   zero-fuel-weight prediction and on-time-performance cost models into production.</li>
-                <li>Improved cross-functional decision quality by ~40% with production ML and BI insight frameworks
-                  on GCP and Azure for operations teams and leadership.</li>
                 <li>Ran technical discovery with Business Technology and operations stakeholders, turning ambiguous
                   business problems into ML requirements, a technical roadmap and deployed systems.</li>
                 <li>Reduced decision latency for operations leadership by re-architecting reporting logic and model
@@ -1048,6 +801,8 @@
               </ul>
 
             </li>
+
+            <li class="timeline-item" data-kb-anchor="exp-indigo-bi"><h4 class="h4 timeline-item-title">Business Intelligence Engineer</h4><h5 class="h5 timeline-item-title">IndiGo / Business Technology &amp; Product, Gurugram</h5><span>June 2023 - December 2023</span><p class="timeline-text">Built production BI and insight frameworks on GCP and Azure. Led requirements gathering, problem analysis and solution design; reporting logic and product parameters improved decision quality by approximately 40%.</p></li>
 
             <li class="timeline-item" data-kb-anchor="exp-consulting">
 
@@ -1082,80 +837,7 @@
 
         </section>
 
-        <section class="skill">
-
-          <h3 class="h3 skills-title">My skills</h3>
-
-          <ul class="skills-list content-card">
-
-            <li class="skills-item">
-
-              <div class="title-wrapper">
-                <h5 class="h5">LLM Systems & Agentic AI (RAG, LangGraph, Claude, Multi-Agent Orchestration)</h5>
-                <data value="90">90%</data>
-              </div>
-
-              <div class="skill-progress-bg">
-                <div class="skill-progress-fill" style="--skill-width: 90%;"></div>
-              </div>
-
-            </li>
-
-            <li class="skills-item">
-
-              <div class="title-wrapper">
-                <h5 class="h5">Forward Deployed Engineering (0&rarr;1 Production AI, Customer Embedding, AI Evaluation)</h5>
-                <data value="88">88%</data>
-              </div>
-
-              <div class="skill-progress-bg">
-                <div class="skill-progress-fill" style="--skill-width: 88%;"></div>
-              </div>
-
-            </li>
-
-            <li class="skills-item">
-
-              <div class="title-wrapper">
-                <h5 class="h5">AI Security & Compliance (AES-256-GCM, PII Masking, OAuth 2.0, GDPR)</h5>
-                <data value="82">82%</data>
-              </div>
-
-              <div class="skill-progress-bg">
-                <div class="skill-progress-fill" style="--skill-width: 82%;"></div>
-              </div>
-
-            </li>
-
-            <li class="skills-item">
-
-              <div class="title-wrapper">
-                <h5 class="h5">Business Translation & AI Product Strategy (Roadmaps, Pricing, Exec Alignment)</h5>
-                <data value="85">85%</data>
-              </div>
-
-              <div class="skill-progress-bg">
-                <div class="skill-progress-fill" style="--skill-width: 85%;"></div>
-              </div>
-
-            </li>
-
-            <li class="skills-item">
-
-              <div class="title-wrapper">
-                <h5 class="h5">Analytics & ML Engineering (Python, SQL, GCP/Azure, Forecasting, BI)</h5>
-                <data value="80">80%</data>
-              </div>
-
-              <div class="skill-progress-bg">
-                <div class="skill-progress-fill" style="--skill-width: 80%;"></div>
-              </div>
-
-            </li>
-
-          </ul>
-
-        </section>
+        <section class="skill"><h3 class="h3 skills-title">Engineering toolkit</h3><div class="capability-map"><div><span>BUILD</span><p>Python · TypeScript · SQL · FastAPI</p></div><div><span>ORCHESTRATE</span><p>LangGraph · MCP · RAG · Multi-agent systems</p></div><div><span>GROUND</span><p>Postgres · Qdrant · Neo4j · DuckDB</p></div><div><span>VALIDATE</span><p>Evals · Structured outputs · OpenTelemetry</p></div><div><span>DEPLOY</span><p>Docker · GCP · Azure · Tenant isolation</p></div></div></section>
 
       </article>
 
@@ -1476,31 +1158,7 @@
 
           <ul class="project-list">
 
-            <li class="project-item featured active" data-filter-item data-category="ai & llm" data-kb-anchor="proj-clawbackvault">
-              <a href="https://www.linkedin.com/in/advaitdharmadhikari" class="project-card">
-                <div class="project-banner banner-ai">
-                  <span class="project-lang">Production &middot; Fintech</span>
-                  <ion-icon class="project-glyph" name="shield-checkmark-outline"></ion-icon>
-                  <span class="project-open"><ion-icon name="open-outline"></ion-icon></span>
-                </div>
-                <div class="project-body">
-                  <h3 class="project-title">ClawbackVault AI</h3>
-                  <p class="project-desc">
-                    A privacy-first AI system that protects broker commissions from silent client churn: a
-                    targeted-surveillance architecture, a Claude Sonnet 4.6 signal engine across 15+ behavioural
-                    categories, and an 80 to 90% reduction in LLM token spend per broker.
-                  </p>
-                  <div class="project-chips">
-                    <span class="pchip">Claude</span>
-                    <span class="pchip">LangGraph</span>
-                    <span class="pchip">Supabase</span>
-                    <span class="pchip">OAuth 2.0</span>
-                  </div>
-                </div>
-              </a>
-            </li>
-
-            <li class="project-item featured active" data-filter-item data-category="ai & llm" data-kb-anchor="proj-eadip">
+<li class="project-item featured active" data-filter-item data-category="ai & llm" data-kb-anchor="proj-eadip">
               <a href="https://github.com/advait27/EADIP" class="project-card">
                 <div class="project-banner banner-ai">
                   <span class="project-lang">Open source &middot; Multi-agent</span>
@@ -1525,6 +1183,32 @@
                 </div>
               </a>
             </li>
+
+            <li class="project-item featured active" data-filter-item data-category="ai & llm" data-kb-anchor="proj-clawbackvault">
+              <a href="https://www.linkedin.com/in/advaitdharmadhikari" class="project-card">
+                <div class="project-banner banner-ai">
+                  <span class="project-lang">Previous role &middot; Fintech</span>
+                  <ion-icon class="project-glyph" name="shield-checkmark-outline"></ion-icon>
+                  <span class="project-open"><ion-icon name="open-outline"></ion-icon></span>
+                </div>
+                <div class="project-body">
+                  <h3 class="project-title">ClawbackVault AI</h3>
+                  <p class="project-desc">
+                    Built at Frensei (Nov 2025–Sep 2026). A privacy-first system for broker-dealers: a
+                    targeted-surveillance architecture, a Claude Sonnet 4.6 signal engine across 15+ behavioural
+                    categories, and an 80 to 90% reduction in LLM token spend per broker.
+                  </p>
+                  <div class="project-chips">
+                    <span class="pchip">Claude</span>
+                    <span class="pchip">LangGraph</span>
+                    <span class="pchip">Supabase</span>
+                    <span class="pchip">OAuth 2.0</span>
+                  </div>
+                </div>
+              </a>
+            </li>
+
+
 
             <li class="project-item active" data-filter-item data-category="ai & llm" data-kb-anchor="proj-veritas">
               <a href="https://github.com/advait27/Veritas" class="project-card">
@@ -2527,6 +2211,7 @@
     </div>
 
   </main>
+  <footer class="site-footer"><p>Built with context. Grounded in evidence.</p><span>© 2026 Advait Dharmadhikari</span><a href="mailto:advaitdharmadhikari27@gmail.com">Start a conversation ↗</a></footer>
 
 
 
@@ -2541,11 +2226,7 @@
   <!--
     - motion layer: GSAP + ScrollTrigger, then page choreography (additive)
   -->
-  <script src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/gsap.min.js"
-    integrity="sha384-XmJ9SoHtVOHoQUcKvFAzVXwdkKo1Ie3bhmSoIAkcdsHGaIrVJIkmozyq0FJeb/Ly" crossorigin="anonymous" defer></script>
-  <script src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/ScrollTrigger.min.js"
-    integrity="sha384-wl5TeDVvOWt30Pbf8aSo2ZrzsOjddu3avOBvHe+p+OhJt9gP6w9YXmDkN5DK2/dF" crossorigin="anonymous" defer></script>
-  <script src="./assets/js/motion.js" defer></script>
+
 
   <!--
     - "Ask my portfolio" chat assistant (additive)
@@ -2563,12 +2244,12 @@
   <script type="importmap">
   {
     "imports": {
-      "three": "https://unpkg.com/three@0.160.0/build/three.module.js",
-      "three/addons/": "https://unpkg.com/three@0.160.0/examples/jsm/"
+      "three": "./assets/js/vendor/three.module.min.js",
+      "three/addons/controls/OrbitControls.js": "./assets/js/vendor/OrbitControls.js"
     }
   }
   </script>
-  <script type="module" src="./assets/js/pipeline.js"></script>
+  <script type="module" src="./assets/js/studio.js"></script>
 
   <!--
     - ionicon link

@@ -3,7 +3,7 @@
 
 [build]
   publish = "."
-  command = ""
+  command = "node scripts/check-site.mjs"
 
 [functions]
   node_bundler = "esbuild"
