@@ -12,7 +12,7 @@ const sidebar = document.querySelector("[data-sidebar]");
 const sidebarBtn = document.querySelector("[data-sidebar-btn]");
 
 // sidebar toggle functionality for mobile
-sidebarBtn.addEventListener("click", function () { elementToggleFunc(sidebar); });
+sidebarBtn?.addEventListener("click", function () { elementToggleFunc(sidebar); this.setAttribute("aria-expanded", String(sidebar.classList.contains("active"))); });
 
 
 
@@ -50,8 +50,8 @@ for (let i = 0; i < testimonialsItem.length; i++) {
 }
 
 // add click event to modal close button
-modalCloseBtn.addEventListener("click", testimonialsModalFunc);
-overlay.addEventListener("click", testimonialsModalFunc);
+modalCloseBtn?.addEventListener("click", testimonialsModalFunc);
+overlay?.addEventListener("click", testimonialsModalFunc);
 
 
 
@@ -157,6 +157,11 @@ for (let i = 0; i < formInputs.length; i++) {
 
 // contact form submission (Formspree)
 if (form) {
+  const showFormError = (message) => {
+    let error = form.querySelector(".form-error");
+    if (!error) { error = document.createElement("p"); error.className = "form-error"; error.setAttribute("role", "alert"); form.appendChild(error); }
+    error.textContent = message;
+  };
   const thankYou = document.querySelector("#thank-you");
   const honeypot = form.querySelector(".hp-field");
 
@@ -194,6 +199,8 @@ if (form) {
         form.reset();
         formBtn.setAttribute("disabled", "");
         showThankYou();
+      } else {
+        showFormError("Your message could not be sent. Please try again or use the email link above.");
       }
     } catch (error) {
       // Fall back to default submission if fetch fails.
@@ -219,11 +226,13 @@ for (let i = 0; i < navigationLinks.length; i++) {
       if (this.innerHTML.toLowerCase() === pages[i].dataset.page) {
         pages[i].classList.add("active");
         navigationLinks[i].classList.add("active");
+        navigationLinks[i].setAttribute("aria-current", "page");
         next = pages[i];
         window.scrollTo(0, 0);
       } else {
         pages[i].classList.remove("active");
         navigationLinks[i].classList.remove("active");
+        navigationLinks[i].removeAttribute("aria-current");
       }
     }
 

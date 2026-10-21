@@ -44,8 +44,9 @@ way to production. I came into AI through business and operations,
 so before models or tooling my first question is always:
 "what decision are we improving?"
 
-Currently: Founding AI Engineer & Product Lead at Frensei
-Innovation Labs (ClawbackVault AI). MSc Business Analytics,
+Previously: Founding AI Engineer & Product Lead at Frensei
+Innovation Labs (ClawbackVault AI), Nov 2025-Sep 2026.
+Independent work: EADIP, Veritas and production AI research. MSc Business Analytics,
 UCD Michael Smurfit (2025-2026). First author of two research
 preprints on production AI systems (see research/).
 
@@ -53,11 +54,7 @@ Open to: Forward Deployed Engineer · Founding AI Engineer ·
 Applied AI Engineer · AI consulting. Ireland, Europe, global.`),
 
     "skills.txt": F(`
-[##########] 90%  LLM Systems & Agentic AI (RAG, LangGraph, Claude)
-[#########-] 88%  Forward Deployed Engineering (0->1 production AI)
-[########--] 82%  AI Security & Compliance (AES-256-GCM, PII, GDPR)
-[########--] 85%  Business Translation & AI Product Strategy
-[########--] 80%  Analytics & ML Engineering (Python, SQL, GCP/Azure)
+Core toolkit / technologies used, not proficiency ratings
 
 AI:       agentic & multi-agent systems · RAG · MCP · evals
 LLMs:     Claude · OpenAI · open-weight models · LangGraph
@@ -66,11 +63,11 @@ Platform: Python · TypeScript · FastAPI · Docker · Postgres (RLS)
 Cloud:    GCP · Azure · OAuth 2.0 · AES-256-GCM · GDPR · CASA Tier 2`),
 
     "education.txt": F(`
-2025-2026  MSc Business Analytics
+Sep 2025-Sep 2026  MSc Business Analytics
            UCD Michael Smurfit Graduate Business School, Dublin
            Global Leadership Programme · UCD Advantage Award
 
-2023-2024  PG Certification, AI & Machine Learning
+Oct 2023-Jul 2024  PG Certification, AI & Machine Learning
            Indian Institute of Technology, Kanpur
 
 2020-2023  BBA Business Analytics & Data Science
@@ -107,10 +104,10 @@ Tip: 'open links/linkedin.url' opens LinkedIn in a new tab.`),
     experience: D({
       "frensei.md": F(`
 # Founding AI Engineer & Product Lead — Frensei Innovation Labs
-  (ClawbackVault AI) · Dublin · December 2025 - Present
+  (ClawbackVault AI) · Dublin · November 2025 - September 2026 (previous role)
 
 AI-first compliance intelligence for financial-services
-broker-dealers. Own full-stack AI architecture, enterprise
+broker-dealers. Owned full-stack AI architecture, enterprise
 deployment and product strategy from 0 to scale.
 
 * Three-stage targeted-surveillance pipeline (header scan ->
@@ -127,12 +124,12 @@ deployment and product strategy from 0 to scale.
   PII masking before every LLM call, prompt-injection defense,
   GDPR export, Supabase row-level isolation (EU-West, APAC).
 * Built and led a cross-functional team (AI engineering,
-  cybersecurity, analytics); own the roadmap and pricing tiers
+  cybersecurity, analytics); owned the roadmap and pricing tiers
   with the Founder/CEO.`),
 
       "indigo.md": F(`
 # Business Analyst & ML Engineer — IndiGo (InterGlobe Aviation)
-  Gurugram · June 2023 - August 2025
+  Gurugram · January 2024 - August 2025
 
 ML-driven optimisation and decision intelligence across a 300+
 aircraft fleet. Promoted into the ML engineering role within six
@@ -154,7 +151,7 @@ business students: tutorials on AI in business, digital
 transformation, and data-driven decision-making.`),
 
       "earlier.md": F(`
-* Business Analytics & ML Mentor — topmate.io (2025-2026):
+* Business Analytics & ML Mentor — topmate.io (Jan 2025-May 2026):
   1-on-1 mentorship for professionals moving into AI/ML roles.
 * Business Development Analyst Team Lead — CHRIST Consulting
   (2021-2022): led a 15-member analyst team; +25% new business.
@@ -447,7 +444,7 @@ Run 'open research/forward-deployed-engineering.md' to read it.`,
           "        ___        visitor@advait-portfolio",
           "       /   \\       -------------------------",
           "      / ^ ^ \\      Role:    Forward Deployed AI Engineer",
-          "     |  >_<  |     Org:     Frensei (ClawbackVault AI)",
+          "     |  >_<  |     Focus:   Independent AI engineering & research",
           "      \\_____/      Loc:     Dublin, Ireland",
           "      /|   |\\      Stack:   Claude · LangGraph · RAG · Python",
           "                   Uptime:  shipping since 2020",
