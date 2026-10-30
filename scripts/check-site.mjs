@@ -28,10 +28,12 @@ for (const chunk of kb.chunks) {
   assert(chunk.text && chunk.anchor, `Incomplete KB chunk: ${chunk.id}`);
 }
 const frensei = kb.chunks.find(c => c.id === 'exp-frensei').text;
-assert(frensei.includes('November 2025 to September 2026'), 'Past role needs confirmed dates');
+assert(frensei.includes('October 2025 to October 2026'), 'Past role needs confirmed dates');
 assert(!/\b(?:is Founding|to present|Currently: Founding)\b/i.test(frensei), 'Past role must not become a current employer');
-assert(html.includes('November 2025 - September 2026'), 'Visible career dates must match the KB');
-assert(html.includes('September 2025 - September 2026'), 'Confirmed MSc dates must be preserved');
+assert(html.includes('October 2025 - October 2026'), 'Visible career dates must match the CV and KB');
+assert(html.includes('October 2023 - September 2024'), 'IIT Kanpur dates must match the CV');
+assert(kb.chunks.find(c => c.id === 'education').text.includes('September 2025 to August 2026'), 'Assistant education dates must match the CV');
+assert(html.includes('September 2025 - August 2026'), 'Confirmed MSc dates must be preserved');
 assert(html.includes('./assets/images/github-profile.jpg'), 'Current GitHub portrait must be used');
 for (const image of html.matchAll(/<img\b[^>]*>/g)) assert(/\balt="/.test(image[0]), 'Images require alt text');
 for (const file of await readdir(resolve(root, 'assets/js'))) {
