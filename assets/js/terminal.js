@@ -45,7 +45,7 @@ so before models or tooling my first question is always:
 "what decision are we improving?"
 
 Previously: Founding AI Engineer & Product Lead at Frensei
-Innovation Labs (ClawbackVault AI), Nov 2025-Sep 2026.
+Innovation Labs (ClawbackVault AI), Oct 2025-Oct 2026.
 Independent work: EADIP, Veritas and production AI research. MSc Business Analytics,
 UCD Michael Smurfit (2025-2026). First author of two research
 preprints on production AI systems (see research/).
@@ -63,11 +63,11 @@ Platform: Python · TypeScript · FastAPI · Docker · Postgres (RLS)
 Cloud:    GCP · Azure · OAuth 2.0 · AES-256-GCM · GDPR · CASA Tier 2`),
 
     "education.txt": F(`
-Sep 2025-Sep 2026  MSc Business Analytics
+Sep 2025-Aug 2026  MSc Business Analytics
            UCD Michael Smurfit Graduate Business School, Dublin
            Global Leadership Programme · UCD Advantage Award
 
-Oct 2023-Jul 2024  PG Certification, AI & Machine Learning
+Oct 2023-Sep 2024  PG Certification, AI & Machine Learning
            Indian Institute of Technology, Kanpur
 
 2020-2023  BBA Business Analytics & Data Science
@@ -104,7 +104,7 @@ Tip: 'open links/linkedin.url' opens LinkedIn in a new tab.`),
     experience: D({
       "frensei.md": F(`
 # Founding AI Engineer & Product Lead — Frensei Innovation Labs
-  (ClawbackVault AI) · Dublin · November 2025 - September 2026 (previous role)
+  (ClawbackVault AI) · Dublin · October 2025 - October 2026 (previous role)
 
 AI-first compliance intelligence for financial-services
 broker-dealers. Owned full-stack AI architecture, enterprise
@@ -132,13 +132,13 @@ deployment and product strategy from 0 to scale.
   Gurugram · January 2024 - August 2025
 
 ML-driven optimisation and decision intelligence across a 300+
-aircraft fleet. Promoted into the ML engineering role within six
-months.
+aircraft fleet. Overall IndiGo tenure: June 2023 - August 2025,
+progressing from BI engineering into the ML role in January 2024.
 
 * Aircraft zero-fuel-weight prediction and on-time-performance
-  cost models: ~20% operational cost savings fleet-wide.
-* Production ML & BI insight frameworks on GCP & Azure: ~40%
-  better cross-functional decision quality.
+  cost models: contributed to reported ~20% operational cost savings.
+* Production ML & BI insight frameworks on GCP & Azure to
+  support cross-functional operational decisions.
 * Technical discovery with Business Technology & operations:
   ambiguous problems -> ML requirements -> deployed systems.`),
 
