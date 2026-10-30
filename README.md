@@ -23,8 +23,8 @@ outcomes, with interactive 3D presentations that explain the architecture.
 
 The 3D scenes are explanatory illustrations. They do not display live customer
 data, production telemetry or measured performance. Historical outcomes retain
-employer labels. Frensei is a previous role, **November 2025–September 2026**.
-The UCD MSc dates are **September 2025–September 2026**. IndiGo appointments
+employer labels. Frensei is a previous role, **October 2025–October 2026**.
+The UCD MSc dates are **September 2025–August 2026**. IndiGo appointments
 are separate: ML engineering in January 2024–August 2025 and BI engineering
 in June–December 2023.
 

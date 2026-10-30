@@ -2,9 +2,9 @@ Advait Dharmadhikari | Forward Deployed Engineer / Applied AI
 Dublin, Ireland. Open to AI engineering and consulting opportunities.
 
 Independent work: EADIP, Veritas, Python packages and enterprise AI research.
-Previous role: Founding AI Engineer & Product Lead, Frensei Innovation Labs, November 2025–September 2026.
+Previous role: Founding AI Engineer & Product Lead, Frensei Innovation Labs, October 2025–October 2026.
 IndiGo: Business Analyst & ML Engineer, January 2024–August 2025; Business Intelligence Engineer, June–December 2023.
-MSc Business Analytics, UCD Smurfit: September 2025–September 2026.
+MSc Business Analytics, UCD Smurfit: September 2025–August 2026.
 
 Portfolio: https://advaitdharmadhikari.netlify.app
 GitHub: https://github.com/advait27
